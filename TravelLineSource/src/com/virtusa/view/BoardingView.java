@@ -25,6 +25,7 @@ public class BoardingView {
 		//LocalDate journeyDate=new LocalDate("yyyy/mm/dd");
 		DateTimeFormatter dateTimeFormatter=new DateTimeFormatter.ofPattern("d/mm/yyyy");
 		String journeyDate=sc.next();
+		
 		LocalDate date=new LocalDate.parse(date,dateTimeFormatter);
 		PassengerController passengerController=new PassengerController();
 		passengerController.showBuses(boardingPoint,droppingPoint,date);
