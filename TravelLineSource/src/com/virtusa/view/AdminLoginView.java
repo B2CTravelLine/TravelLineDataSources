@@ -16,7 +16,6 @@ public class AdminLoginView {
 	public void mainAdminView() {
 	
 		Scanner sc=new Scanner(System.in);
-
 		System.out.println("=======Admin View======");
 		
 		

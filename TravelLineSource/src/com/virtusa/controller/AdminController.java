@@ -57,7 +57,7 @@ public class AdminController {
 		if(userVal) {
 			System.out.println("Admin added Successfull");
 			//AddAdminView addAdmin=new AddAdminView();
-			//addAdmin.mainAddAdminView();
+			//addAdmin.mainAdminView();
 			AdminOptionsView adminView=new AdminOptionsView();
 			adminView.mainAdminOptionsView();
 		}else {
