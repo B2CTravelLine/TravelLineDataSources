@@ -3,6 +3,50 @@ package com.virtusa.entities;
 import java.util.Date;
 
 public class Admin {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((AdminName == null) ? 0 : AdminName.hashCode());
+		result = prime * result + ((AdminPassword == null) ? 0 : AdminPassword.hashCode());
+		result = prime * result + Age;
+		result = prime * result + ((Email == null) ? 0 : Email.hashCode());
+		result = prime * result + ((Gender == null) ? 0 : Gender.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Admin other = (Admin) obj;
+		if (AdminName == null) {
+			if (other.AdminName != null)
+				return false;
+		} else if (!AdminName.equals(other.AdminName))
+			return false;
+		if (AdminPassword == null) {
+			if (other.AdminPassword != null)
+				return false;
+		} else if (!AdminPassword.equals(other.AdminPassword))
+			return false;
+		if (Age != other.Age)
+			return false;
+		if (Email == null) {
+			if (other.Email != null)
+				return false;
+		} else if (!Email.equals(other.Email))
+			return false;
+		if (Gender == null) {
+			if (other.Gender != null)
+				return false;
+		} else if (!Gender.equals(other.Gender))
+			return false;
+		return true;
+	}
 	private  String AdminName;
 	private String AdminPassword;
 	@Override
