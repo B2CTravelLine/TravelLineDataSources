@@ -13,7 +13,7 @@ import com.virtusa.view.SeatView;
 
 public class PassengerController {
 	 
-	public void showBuses(String boardingPoint,String droppingPoint,LocalDate journeyDate)
+	public void showBuses(String boardingPoint,String droppingPoint,Date journeyDate)
 	{
 		BoardingModel boardingModel=new BoardingModel();
 		boardingModel.setFrom(boardingPoint);
@@ -61,7 +61,7 @@ public class PassengerController {
 		}
 		catch(Exception e)
 		{
-			System.out.println("Seats not availables");
+			System.out.println("buses not availables");
 		}
 	}
 	public void selectSeat(int noofSeats,String seatType)
@@ -80,6 +80,8 @@ public class PassengerController {
 			else
 			{
 				System.out.println("seats not availables");
+				BusView busView=new BusView();
+				busView.mainBusView();
 			}
 		}catch(Exception e)
 		{

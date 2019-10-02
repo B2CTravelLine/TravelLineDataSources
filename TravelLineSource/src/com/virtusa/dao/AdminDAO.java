@@ -28,12 +28,16 @@ public class AdminDAO {
 		if(statement.getResultSet().equals(null)) {
 			statement.close();
 			con.close();
-			
+			 connectionUtility.closeConnection();
 			return false;
 		}
-		statement.close();
-		con.close();
-		return true;
+		else
+			{
+			statement.close();
+			
+			con.close();
+			return true;
+		}
 		
 	}
 }
