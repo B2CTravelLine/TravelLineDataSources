@@ -11,7 +11,7 @@ public class DataSource {
 	
 	public DataSource() {
 		ResourceBundle resourceBundle=
-				ResourceBundle.getBundle("DB");
+				ResourceBundle.getBundle("DataBase");
 		
 		this.driver=resourceBundle.getString("driver");
 		this.url=resourceBundle.getString("url");
