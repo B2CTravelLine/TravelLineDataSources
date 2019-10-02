@@ -21,7 +21,7 @@ public class AdminDAO {
 	{
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
-		PreparedStatement statement=con.prepareStatement("select * from admin where username=? and password=?");
+		PreparedStatement statement=con.prepareStatement("select * from Admin where admin_name=? and password=?");
 		statement.setString(1,adminLoginModel.getAdminName());
 		statement.setString(2, adminLoginModel.getAdminPassword());
 		
