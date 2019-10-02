@@ -35,7 +35,8 @@ public class AdminController {
 		
 		}catch(Exception e) {
 			System.out.println("User Authentication failed.");
-			
+			AdminLoginView adminLoginView=new AdminLoginView(); 
+			adminLoginView.mainAdminView();
 		
 		}
 	}
@@ -56,8 +57,7 @@ public class AdminController {
 		
 		if(userVal) {
 			System.out.println("Admin added Successfull");
-			//AddAdminView addAdmin=new AddAdminView();
-			//addAdmin.mainAdminView();
+			
 			AdminOptionsView adminView=new AdminOptionsView();
 			adminView.mainAdminOptionsView();
 		}else {
@@ -66,7 +66,9 @@ public class AdminController {
 		}
 		
 		}catch(Exception e) {
-			System.out.println("User Authentication failed.");
+			System.out.println("new admin is not added");
+			AddAdminView addAdmin=new AddAdminView();
+			addAdmin.mainAddAdminView();
 			
 		
 		}

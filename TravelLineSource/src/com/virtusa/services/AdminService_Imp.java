@@ -1,6 +1,7 @@
 package com.virtusa.services;
 
 
+import java.sql.SQLException;
 import java.util.Comparator;
 
 import com.virtusa.dao.AdminDAO;
@@ -12,7 +13,7 @@ public class AdminService_Imp implements AdminService,Comparator<Admin> {
 	 
 	AdminRepository admin1=new AdminRepository();
 	AdminDAO adminDAO=new AdminDAO();
-	public boolean adminVerification(AdminLoginModel adminLoginModel)
+	public boolean adminVerification(AdminLoginModel adminLoginModel) throws ClassNotFoundException, SQLException
 	{
 		return adminDAO.adminVerification(adminLoginModel);
 	}
