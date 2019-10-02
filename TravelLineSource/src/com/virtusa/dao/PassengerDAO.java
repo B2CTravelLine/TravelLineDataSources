@@ -45,10 +45,13 @@ public class PassengerDAO {
 		return false;
 		
 	}*/
-	public boolean selectBus(BusModel busModel)
+	public boolean selectBus(BusModel busModel) throws ClassNotFoundException, SQLException
 	{
-		if(busModel.getDepatureTime().equals("")&&busModel.getArrivalTime().equals("")&&busModel.getBusType().equals(""))
-			return true;
+		ConnectionManager connectionUtility=new ConnectionManager();
+		Connection con=connectionUtility.openConnection();
+		
+		//if(busModel.getDepatureTime().equals("")&&busModel.getArrivalTime().equals("")&&busModel.getBusType().equals(""))
+			//return true;
 		return false;
 		
 	}

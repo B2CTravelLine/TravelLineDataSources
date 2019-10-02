@@ -7,7 +7,7 @@ public class BoardingModel {
 	
 	private String From;
 	private String To;
-	private LocalDate journeyDate;
+	private Date journeyDate;
 	public String getFrom() {
 		return From;
 	}
@@ -23,10 +23,11 @@ public class BoardingModel {
 	
 
 	
-	public LocalDate getJourneyDate() {
+	
+	public Date getJourneyDate() {
 		return journeyDate;
 	}
-	public void setJourneyDate(LocalDate journeyDate) {
+	public void setJourneyDate(Date journeyDate) {
 		this.journeyDate = journeyDate;
 	}
 	@Override
