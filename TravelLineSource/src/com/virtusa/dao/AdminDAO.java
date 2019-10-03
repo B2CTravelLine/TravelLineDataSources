@@ -2,7 +2,11 @@ package com.virtusa.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.virtusa.entities.Admin;
 import com.virtusa.model.AdminLoginModel;
@@ -43,4 +47,25 @@ public class AdminDAO {
 		}
 		
 	}
+	public List<Admin> getAllAdmins() throws ClassNotFoundException, SQLException {
+		Connection connection=ConnectionManager.openConnection();
+		Statement statement=connection.createStatement();
+		ResultSet resultSet= statement.executeQuery("select * from Employees");
+		List<Admin> adminList=new ArrayList();
+
+		while(resultSet.next()) {
+		Admin admins=new Admin();
+		admins.setAdminName(resultSet.getString("adminName"));
+		admins.setAdminPassword(resultSet.getString("adminPassword"));
+		admins.setEmail(resultSet.getString("email"));
+		admins.setAge(resultSet.getInt("age"));
+		admins.setGender(resultSet.getString("gender"));
+		}
+		ConnectionManager.closeConnection();
+		return adminList;
+	}	
+	public boolean storeAdminDetails(Admin admins)throws ClassNotFoundException, SQLException {
+		return false;
+		}	
+	
 }
