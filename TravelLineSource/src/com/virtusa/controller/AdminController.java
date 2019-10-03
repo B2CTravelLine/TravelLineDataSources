@@ -88,7 +88,6 @@ public class AdminController {
 		modifyServiceModel.setTotalFare(totalFare);
 		modifyServiceModel.setActive(active);
 		
-		
 	}
 	
 		
