@@ -1,10 +1,13 @@
 package com.virtusa.controller;
 
+import java.sql.Time;
+
 import org.omg.CORBA.UserException;
 
 import com.virtusa.helper.Factory_Admin;
 import com.virtusa.model.AddAdminModel;
 import com.virtusa.model.AdminLoginModel;
+import com.virtusa.model.ModifyServiceModel;
 import com.virtusa.services.AdminService_Imp;
 import com.virtusa.view.AddAdminView;
 import com.virtusa.view.AdminLoginView;
@@ -71,6 +74,21 @@ public class AdminController {
 			addAdmin.mainAddAdminView();
 		}
 	}
+	
+	public void modifyService(String serviceNo, String source, String destination, String busType, int distance,
+			Time departureTime, Time arrivalTime, double totalFare, String active) {
+		ModifyServiceModel modifyServiceModel = new ModifyServiceModel();
+		modifyServiceModel.setServiceNo(serviceNo);
+		modifyServiceModel.setSource(source);
+		modifyServiceModel.setDestination(destination);
+		modifyServiceModel.setBusType(busType);
+		modifyServiceModel.setDistance(distance);
+		modifyServiceModel.setDepartureTime(departureTime);
+		modifyServiceModel.setArrivalTime(arrivalTime);
+		modifyServiceModel.setTotalFare(totalFare);
+		modifyServiceModel.setActive(active);
+	}
+	
 		
 		
 	}

@@ -35,7 +35,7 @@ public class ModifyServiceview {
 		System.out.println("Enter TravelDistance");
 		int distance = sc.nextInt();
 		System.out.println("enter DepatureTime");
-		String depatureTime=sc.next();
+		String departureTime=sc.next();
 		System.out.println("enter ArrivalTime");
 		String arrivalTime=sc.next();
 		System.out.println("enter FareAmount");
@@ -44,7 +44,7 @@ public class ModifyServiceview {
 		String active = sc.next();
 
 		AdminController adminController = new AdminController();
-		
+		adminController.modifyService(serviceNo, source, destination, busType,distance, departureTime, arrivalTime, totalFare, active);
 	}
 
 }
