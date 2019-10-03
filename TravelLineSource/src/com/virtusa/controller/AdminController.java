@@ -69,8 +69,6 @@ public class AdminController {
 			System.out.println("new admin is not added");
 			AddAdminView addAdmin=new AddAdminView();
 			addAdmin.mainAddAdminView();
-			
-		
 		}
 	}
 		
