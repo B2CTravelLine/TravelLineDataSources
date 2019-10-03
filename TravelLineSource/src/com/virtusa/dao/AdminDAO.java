@@ -49,6 +49,7 @@ public class AdminDAO {
 	}
 	public List<Admin> getAllAdmins() throws ClassNotFoundException, SQLException {
 		Connection connection=ConnectionManager.openConnection();
+<<<<<<< HEAD
 		 Statement statement=connection.createStatement();
 		 ResultSet resultSet= statement.executeQuery("select * from Employees");
 		 List<Admin> adminList=new ArrayList();
@@ -72,3 +73,25 @@ public class AdminDAO {
 
 
 
+=======
+		Statement statement=connection.createStatement();
+		ResultSet resultSet= statement.executeQuery("select * from Employees");
+		List<Admin> adminList=new ArrayList();
+
+		while(resultSet.next()) {
+		Admin admins=new Admin();
+		admins.setAdminName(resultSet.getString("adminName"));
+		admins.setAdminPassword(resultSet.getString("adminPassword"));
+		admins.setEmail(resultSet.getString("email"));
+		admins.setAge(resultSet.getInt("age"));
+		admins.setGender(resultSet.getString("gender"));
+		}
+		ConnectionManager.closeConnection();
+		return adminList;
+	}	
+	public boolean storeAdminDetails(Admin admins)throws ClassNotFoundException, SQLException {
+		return false;
+		}	
+	
+}
+>>>>>>> branch 'master' of https://github.com/B2CTravelLine/TravelLineDataSources
