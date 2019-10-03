@@ -87,6 +87,8 @@ public class AdminController {
 		modifyServiceModel.setArrivalTime(arrivalTime);
 		modifyServiceModel.setTotalFare(totalFare);
 		modifyServiceModel.setActive(active);
+		
+		
 	}
 	
 		
