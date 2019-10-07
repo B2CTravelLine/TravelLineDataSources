@@ -6,6 +6,7 @@ import java.util.Comparator;
 
 import com.virtusa.dao.AdminDAO;
 import com.virtusa.entities.Admin;
+import com.virtusa.model.AddServicesModel;
 import com.virtusa.model.AdminLoginModel;
 import com.virtusa.repository.AdminRepository;
 
@@ -34,6 +35,12 @@ public class AdminService_Imp implements AdminService,Comparator<Admin> {
 		admin.setEmail(adminLoginModel.getEmail());
 		
 		return  adminDAO.adminStoreVerification(admin);
+	}
+	
+	public boolean addServiceVerification(AddServicesModel addServicesModel)
+	{
+		return adminDAO.addServiceVerification(addServicesModel);
+		
 	}
 
 	

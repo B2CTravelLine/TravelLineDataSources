@@ -6,10 +6,12 @@ import org.omg.CORBA.UserException;
 
 import com.virtusa.helper.Factory_Admin;
 import com.virtusa.model.AddAdminModel;
+import com.virtusa.model.AddServicesModel;
 import com.virtusa.model.AdminLoginModel;
 import com.virtusa.model.ModifyServiceModel;
 import com.virtusa.services.AdminService_Imp;
 import com.virtusa.view.AddAdminView;
+import com.virtusa.view.AddServicesView;
 import com.virtusa.view.AdminLoginView;
 import com.virtusa.view.AdminOptionsView;
 import com.virtusa.view.ErrorView;
@@ -75,6 +77,45 @@ public class AdminController {
 		}
 	}
 	
+	public void addService(String from, String to, String type, double fare,
+				float distance, Time departureTime, Time arrivalTime, String serviceNo)
+	{
+		AddServicesModel addServicesModel = new AddServicesModel();
+		addServicesModel.setFrom(from);
+		addServicesModel.setTo(to);
+		addServicesModel.setType(type);
+		addServicesModel.setFare(fare);
+		addServicesModel.setDistance(distance);
+		addServicesModel.setDepartureTime(departureTime);
+		addServicesModel.setArrivalTime(arrivalTime);
+		addServicesModel.setServiceNo(serviceNo);
+		
+		AdminService_Imp userService=new AdminService_Imp(); 
+		try 
+		{
+			boolean values =  userService.addServiceVerification(addServicesModel);
+			if(values)
+			{
+				System.out.println("Entered Services are Added Successfully");
+				AdminOptionsView adminOptionsView=new AdminOptionsView();
+				adminOptionsView.mainAdminOptionsView();
+			}
+			else
+			{
+				ErrorView errorView=new ErrorView();
+				errorView.addServicesError();
+			}
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			System.out.println("Sevices are not added");
+			AddServicesView addServicesView=new AddServicesView();
+			addServicesView.mainAddServicesView();
+	
+		}
+	
+	}
+	
 	public void modifyService(String serviceNo, String source, String destination, String busType, int distance,
 			Time departureTime, Time arrivalTime, double totalFare, String active) {
 		ModifyServiceModel modifyServiceModel = new ModifyServiceModel();
@@ -87,6 +128,7 @@ public class AdminController {
 		modifyServiceModel.setArrivalTime(arrivalTime);
 		modifyServiceModel.setTotalFare(totalFare);
 		modifyServiceModel.setActive(active);
+		AdminService_Imp userService=new AdminService_Imp(); 
 		
 	}
 	

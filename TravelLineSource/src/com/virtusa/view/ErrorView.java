@@ -5,5 +5,10 @@ public class ErrorView {
 		
 		System.out.println("User Authentication Failed.");
 	}
+	
+	public void addServicesError()
+	{
+		System.out.println("Entered Services are Failed");
+	}
 
 }

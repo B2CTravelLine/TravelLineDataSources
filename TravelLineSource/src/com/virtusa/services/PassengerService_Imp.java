@@ -10,17 +10,17 @@ import com.virtusa.model.SeatModel;
 public class PassengerService_Imp implements PassengerService{
 	
 	PassengerDAO passengerDAO=new PassengerDAO();
+	
 	public boolean showAvalBus(BoardingModel boardingModel) throws ClassNotFoundException, SQLException
 	{
-		
-		
 		return passengerDAO.showBuses(boardingModel);
 	}
-	public boolean selectAvlBus(BusModel busModel)
+	
+	public boolean selectAvlBus(BusModel busModel) throws ClassNotFoundException, SQLException
 	{
-		
 		return passengerDAO.selectBus(busModel);
 	}
+	
 	public boolean bookSeat(SeatModel seatModel)
 	{
 		return passengerDAO.bookSeat(seatModel);

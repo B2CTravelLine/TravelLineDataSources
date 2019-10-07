@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.virtusa.entities.Admin;
+import com.virtusa.model.AddServicesModel;
 import com.virtusa.model.AdminLoginModel;
 import com.virtusa.repository.AdminRepository;
 import com.virtusa.utilities.ConnectionManager;
@@ -29,19 +30,16 @@ public class AdminDAO {
 		statement.setString(1,adminLoginModel.getAdminName());
 		statement.setString(2, adminLoginModel.getAdminPassword());
 		
-		if(statement.getResultSet().equals(null)) {
+		if(statement.getResultSet().equals(null))
+		{
 			statement.close();
 			con.close();
 			 connectionUtility.closeConnection();
 			return false;
-			
-			
-			
 		}
 		else
-			{
+		{
 			statement.close();
-			
 			con.close();
 			return true;
 		}
@@ -54,7 +52,8 @@ public class AdminDAO {
 		 ResultSet resultSet= statement.executeQuery("select * from Employees");
 		 List<Admin> adminList=new ArrayList();
 		
-		 while(resultSet.next()) {
+		 while(resultSet.next()) 
+		 {
 			 Admin admins=new Admin();
 			 admins.setAdminName(resultSet.getString("adminName"));
 			 admins.setAdminPassword(resultSet.getString("adminPassword"));
@@ -66,7 +65,13 @@ public class AdminDAO {
 			 return adminList;
 		 }
 		
-	public boolean storeAdminDetails(Admin admins)throws ClassNotFoundException, SQLException {
+	public boolean storeAdminDetails(Admin admins)throws ClassNotFoundException, SQLException 
+	{
+		return false;
+	}
+	
+	public boolean addServiceVerification(AddServicesModel addServicesModel) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
