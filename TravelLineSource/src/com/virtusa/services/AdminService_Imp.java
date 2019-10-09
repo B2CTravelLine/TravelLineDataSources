@@ -37,7 +37,7 @@ public class AdminService_Imp implements AdminService,Comparator<Admin> {
 		return  adminDAO.adminStoreVerification(admin);
 	}
 	
-	public boolean addServiceVerification(AddServicesModel addServicesModel)
+	public boolean addServiceVerification(AddServicesModel addServicesModel) throws ClassNotFoundException, SQLException
 	{
 		return adminDAO.addServiceVerification(addServicesModel);
 		
