@@ -1,19 +1,16 @@
 package com.virtusa.ui;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.text.ParseException;
 import java.util.Scanner;
 
-import com.virtusa.controller.AdminController;
 import com.virtusa.view.AdminLoginView;
 import com.virtusa.view.BoardingView;
 
 
 public class UI {
 
-	public static void main(String[] args)  {
+	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
 		System.out.println("Enter 1 if you are an Admin");
 		System.out.println("Enter 2 if you are a Passenger");
