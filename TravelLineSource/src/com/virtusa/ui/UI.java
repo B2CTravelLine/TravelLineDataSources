@@ -13,7 +13,7 @@ import com.virtusa.view.BoardingView;
 
 public class UI {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
 		System.out.println("Enter 1 if you are an Admin");
 		System.out.println("Enter 2 if you are a Passenger");
