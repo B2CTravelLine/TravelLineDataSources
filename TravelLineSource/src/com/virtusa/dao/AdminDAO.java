@@ -14,14 +14,13 @@ import com.virtusa.model.AdminLoginModel;
 import com.virtusa.repository.AdminRepository;
 import com.virtusa.utilities.ConnectionManager;
 
-public class AdminDAO {
-	
-	
-
+public class AdminDAO 
+{
 	public boolean adminStoreVerification(Admin admin) {
 		// TODO Auto-generated method stub
 		return AdminRepository.add(admin);
 	}
+	@SuppressWarnings("static-access")
 	public boolean adminVerification(AdminLoginModel adminLoginModel) throws ClassNotFoundException, SQLException
 	{
 		ConnectionManager connectionUtility=new ConnectionManager();
@@ -70,10 +69,38 @@ public class AdminDAO {
 		return false;
 	}
 	
-	public boolean addServiceVerification(AddServicesModel addServicesModel) {
-		// TODO Auto-generated method stub
-		return false;
+	@SuppressWarnings("static-access")
+	public boolean addServiceVerification(AddServicesModel addServicesModel) throws ClassNotFoundException, SQLException 
+	{
+		ConnectionManager connectionManager= new ConnectionManager();
+		Connection connection = connectionManager.openConnection();
+		PreparedStatement statement = connection.prepareStatement("select * from bus");
+		statement.setString(2, addServicesModel.getFrom());
+		statement.setString(1,addServicesModel.getTo());
+		statement.setString(3, addServicesModel.getType());
+		statement.setDouble(4, addServicesModel.getFare());
+		statement.setFloat(5, addServicesModel.getDistance());
+		statement.setTime(6, addServicesModel.getDepartureTime());
+		statement.setTime(7, addServicesModel.getArrivalTime());
+		statement.setString(8, addServicesModel.getServiceNo());
+		
+		if(statement.getResultSet().equals(null))
+		{
+			statement.close();
+			connection.close();
+			connectionManager.closeConnection();
+			return false;
+		}
+		else
+		{
+			statement.close();
+			connection.close();
+			return true;
+		}
+		
 	}
+
+
 
 
 		
