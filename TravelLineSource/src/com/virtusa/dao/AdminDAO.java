@@ -74,7 +74,7 @@ public class AdminDAO
 	{
 		ConnectionManager connectionManager= new ConnectionManager();
 		Connection connection = connectionManager.openConnection();
-		PreparedStatement statement = connection.prepareStatement("select * from bus");
+		PreparedStatement statement = connection.prepareStatement("");
 		statement.setString(2, addServicesModel.getFrom());
 		statement.setString(1,addServicesModel.getTo());
 		statement.setString(3, addServicesModel.getType());

@@ -4,73 +4,46 @@ import java.sql.Time;
 
 public class ModifyServiceModel {
 
-	private String ServiceNo;
-	private String Source;
-	private String Destination;
-	private String BusType;
-	private int Distance;
-	private Time DepartureTime;
-	private Time ArrivalTime;
-	private double TotalFare;
-	private String Active;
-	public String getServiceNo() {
-		return ServiceNo;
+	private String busNo;
+	private String to;
+	private String from;
+	private String busType;
+	private double distance;
+	public String getBusNo() {
+		return busNo;
 	}
-	public void setServiceNo(String serviceNo) {
-		ServiceNo = serviceNo;
+	public void setBusNo(String busNo) {
+		this.busNo = busNo;
 	}
-	public String getSource() {
-		return Source;
+	public String getTo() {
+		return to;
 	}
-	public void setSource(String source) {
-		Source = source;
+	public void setTo(String to) {
+		this.to = to;
 	}
-	public String getDestination() {
-		return Destination;
+	public String getFrom() {
+		return from;
 	}
-	public void setDestination(String destination) {
-		Destination = destination;
+	public void setFrom(String from) {
+		this.from = from;
 	}
 	public String getBusType() {
-		return BusType;
+		return busType;
 	}
 	public void setBusType(String busType) {
-		BusType = busType;
+		this.busType = busType;
 	}
-	public int getDistance() {
-		return Distance;
+	public double getDistance() {
+		return distance;
 	}
-	public void setDistance(int distance) {
-		Distance = distance;
-	}
-	public Time getDepartureTime() {
-		return DepartureTime;
-	}
-	public void setDepartureTime(Time departureTime) {
-		DepartureTime = departureTime;
-	}
-	public Time getArrivalTime() {
-		return ArrivalTime;
-	}
-	public void setArrivalTime(Time arrivalTime) {
-		ArrivalTime = arrivalTime;
-	}
-	public double getTotalFare() {
-		return TotalFare;
-	}
-	public void setTotalFare(double totalFare) {
-		TotalFare = totalFare;
-	}
-	public String getActive() {
-		return Active;
-	}
-	public void setActive(String active) {
-		Active = active;
+	public void setDistance(double distance) {
+		this.distance = distance;
 	}
 	@Override
 	public String toString() {
-		return "ModifyServiceModel [ServiceNo=" + ServiceNo + ", Source=" + Source + ", Destination=" + Destination
-				+ ", BusType=" + BusType + ", Distance=" + Distance + ", DepartureTime=" + DepartureTime
-				+ ", ArrivalTime=" + ArrivalTime + ", TotalFare=" + TotalFare + ", Active=" + Active + "]";
+		return "ModifyServiceModel [busNo=" + busNo + ", to=" + to + ", from=" + from + ", busType="
+				+ busType + ", distance=" + distance + "]";
 	}
+	
+	
 }

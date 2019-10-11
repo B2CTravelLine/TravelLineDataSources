@@ -24,7 +24,7 @@ public class AdminOptionsView {
 					addServicesView.mainAddServicesView();
 					break;
 			case 3:ModifyServiceview modifyServiceview=new  ModifyServiceview();
-					modifyServiceview.mainModifyServiceview();
+					modifyServiceview.mainModifyServiceView();
 					break;
 			case 4:ViewFeedbackView viewFeedback=new ViewFeedbackView();
 					viewFeedback.mainViewFeedback();

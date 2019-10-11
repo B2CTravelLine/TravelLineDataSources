@@ -1,4 +1,4 @@
-package com.virtusa.controller;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  package com.virtusa.controller;
 
 import java.sql.Time;
 
@@ -15,6 +15,7 @@ import com.virtusa.view.AddServicesView;
 import com.virtusa.view.AdminLoginView;
 import com.virtusa.view.AdminOptionsView;
 import com.virtusa.view.ErrorView;
+import com.virtusa.view.ModifyServiceview;
 
 public class AdminController {
 	
@@ -116,20 +117,31 @@ public class AdminController {
 	
 	}
 	
-	public void modifyService(String serviceNo, String source, String destination, String busType, int distance,
-			Time departureTime, Time arrivalTime, double totalFare, String active) {
+	public void modifyService(String busNo, String to, String from, String busType, int distance) 
+	{
 		ModifyServiceModel modifyServiceModel = new ModifyServiceModel();
-		modifyServiceModel.setServiceNo(serviceNo);
-		modifyServiceModel.setSource(source);
-		modifyServiceModel.setDestination(destination);
+		modifyServiceModel.setBusNo(busNo);
+		modifyServiceModel.setTo(to);
+		modifyServiceModel.setFrom(from);
 		modifyServiceModel.setBusType(busType);
 		modifyServiceModel.setDistance(distance);
-		modifyServiceModel.setDepartureTime(departureTime);
-		modifyServiceModel.setArrivalTime(arrivalTime);
-		modifyServiceModel.setTotalFare(totalFare);
-		modifyServiceModel.setActive(active);
 		AdminService_Imp userService=new AdminService_Imp(); 
-		
+		try
+		{
+			boolean value = userService.modifyServiceVerification();
+			if(value)
+			{
+				System.out.println("Requested Services are Updated");
+				AdminOptionsView adminOptionsView=new AdminOptionsView();
+				adminOptionsView.mainAdminOptionsView();
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Requested Sevices are not Updated");
+			ModifyServiceview modifyServicesView=new ModifyServiceview();
+			modifyServicesView.mainModifyServiceView();
+		}
 	}
 	
 		
