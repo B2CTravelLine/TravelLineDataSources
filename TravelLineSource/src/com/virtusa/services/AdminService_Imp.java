@@ -8,6 +8,7 @@ import com.virtusa.dao.AdminDAO;
 import com.virtusa.entities.Admin;
 import com.virtusa.model.AddServicesModel;
 import com.virtusa.model.AdminLoginModel;
+import com.virtusa.model.ModifyServiceModel;
 import com.virtusa.repository.AdminRepository;
 
 public class AdminService_Imp implements AdminService,Comparator<Admin> {
@@ -41,6 +42,12 @@ public class AdminService_Imp implements AdminService,Comparator<Admin> {
 	{
 		return adminDAO.addServiceVerification(addServicesModel);
 		
+	}
+
+	public boolean modifyServiceVerification(ModifyServiceModel modifyServiceModel)
+	{
+		
+		return false;
 	}
 
 	
