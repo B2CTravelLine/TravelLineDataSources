@@ -49,6 +49,5 @@ public class AdminService_Imp implements AdminService,Comparator<Admin> {
 		
 		return false;
 	}
-
 	
 }

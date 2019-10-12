@@ -3,6 +3,12 @@ package com.virtusa.entities;
 import java.util.Date;
 
 public class Admin {
+	private  String AdminName;
+	private String AdminPassword;
+	private String Email;
+	private int Age;
+	private String Gender;
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -47,16 +53,13 @@ public class Admin {
 			return false;
 		return true;
 	}
-	private  String AdminName;
-	private String AdminPassword;
+	
 	@Override
 	public String toString() {
 		return "Admin [AdminName=" + AdminName + ", AdminPassword=" + AdminPassword + ", Email=" + Email + ", Age="
 				+ Age + ", Gender=" + Gender + "]";
 	}
-	private String Email;
-	private int Age;
-	private String Gender;
+	
 	public String getAdminName() {
 		return AdminName;
 	}

@@ -1,68 +1,67 @@
 package com.virtusa.model;
 
-import java.sql.Time;
+public class AddServicesModel 
+{
+	private int busNo;
+	private String busName;
+	private String busType;
+	private int noOfSeats;
+	private double fare;
+	private int boardingId;
+	
+	public AddServicesModel(){}
 
-public class AddServicesModel {
-	private String From;
-	private String To;
-	private String Type;
-	private double Fare;
-	private float Distance;
-	private  Time DepartureTime;
-	private Time ArrivalTime;
-	private String ServiceNo;
-	public String getFrom() {
-		return From;
+	public int getBusNo() {
+		return busNo;
 	}
-	public void setFrom(String from) {
-		From = from;
+
+	public void setBusNo(int busNo) {
+		this.busNo = busNo;
 	}
-	public String getTo() {
-		return To;
+
+	public String getBusName() {
+		return busName;
 	}
-	public void setTo(String to) {
-		To = to;
+
+	public void setBusName(String busName) {
+		this.busName = busName;
 	}
-	public String getType() {
-		return Type;
+
+	public String getBusType() {
+		return busType;
 	}
-	public void setType(String type) {
-		Type = type;
+
+	public void setBusType(String busType) {
+		this.busType = busType;
 	}
+
+	public int getNoOfSeats() {
+		return noOfSeats;
+	}
+
+	public void setNoOfSeats(int noOfSeats) {
+		this.noOfSeats = noOfSeats;
+	}
+
 	public double getFare() {
-		return Fare;
+		return fare;
 	}
+
 	public void setFare(double fare) {
-		Fare = fare;
+		this.fare = fare;
 	}
-	public float getDistance() {
-		return Distance;
+
+	public int getBoardingId() {
+		return boardingId;
 	}
-	public void setDistance(float distance) {
-		Distance = distance;
+
+	public void setBoardingId(int boardingId) {
+		this.boardingId = boardingId;
 	}
-	public Time getDepartureTime() {
-		return DepartureTime;
-	}
-	public void setDepartureTime(Time departureTime) {
-		DepartureTime = departureTime;
-	}
-	public Time getArrivalTime() {
-		return ArrivalTime;
-	}
-	public void setArrivalTime(Time arrivalTime) {
-		ArrivalTime = arrivalTime;
-	}
-	public String getServiceNo() {
-		return ServiceNo;
-	}
+
 	@Override
 	public String toString() {
-		return "AddServicesModel [From=" + From + ", To=" + To + ", Type=" + Type + ", Fare=" + Fare + ", Distance="
-				+ Distance + ", DepartureTime=" + DepartureTime + ", ArrivalTime=" + ArrivalTime + ", ServiceNo="
-				+ ServiceNo + "]";
-	}
-	public void setServiceNo(String serviceNo) {
-		ServiceNo = serviceNo;
+		return "AddServicesModel [busNo=" + busNo + ", busname=" + busname + ", busType=" + busType + ", noOfSeats="
+				+ noOfSeats + ", fare=" + fare + ", boardingId=" + boardingId + "]";
 	}
 }

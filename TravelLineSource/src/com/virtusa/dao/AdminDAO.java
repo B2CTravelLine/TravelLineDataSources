@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.virtusa.entities.Admin;
+import com.virtusa.entities.BusEntity;
 import com.virtusa.model.AddServicesModel;
 import com.virtusa.model.AdminLoginModel;
 import com.virtusa.repository.AdminRepository;
@@ -68,21 +69,20 @@ public class AdminDAO
 	{
 		return false;
 	}
-	
+	//busNo,busName, busType, noOfSeats, fare, boardingId
 	@SuppressWarnings("static-access")
 	public boolean addServiceVerification(AddServicesModel addServicesModel) throws ClassNotFoundException, SQLException 
 	{
 		ConnectionManager connectionManager= new ConnectionManager();
 		Connection connection = connectionManager.openConnection();
-		PreparedStatement statement = connection.prepareStatement("");
-		statement.setString(2, addServicesModel.getFrom());
-		statement.setString(1,addServicesModel.getTo());
-		statement.setString(3, addServicesModel.getType());
-		statement.setDouble(4, addServicesModel.getFare());
-		statement.setFloat(5, addServicesModel.getDistance());
-		statement.setTime(6, addServicesModel.getDepartureTime());
-		statement.setTime(7, addServicesModel.getArrivalTime());
-		statement.setString(8, addServicesModel.getServiceNo());
+		PreparedStatement statement = connection.prepareStatement("insert into BusEntity values"
+				+ "busNo=?" + "busName=?" +"busType=?" + "noOfSeats=?" + "fare=?" + "boardingId=?");
+		statement.setInt(1, addServicesModel.getBusNo());
+		statement.setString(2,addServicesModel.getBusName());
+		statement.setString(3, addServicesModel.getBusType());
+		statement.setInt(4, addServicesModel.getNoOfSeats());		
+		statement.setDouble(5, addServicesModel.getFare());
+		statement.setInt(6, addServicesModel.getBoardingId());
 		
 		if(statement.getResultSet().equals(null))
 		{
@@ -99,10 +99,26 @@ public class AdminDAO
 		}
 		
 	}
-
-
-
-
-		
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List<BusEntity> getAddServices() throws ClassNotFoundException, SQLException
+	{
+		Connection connection= ConnectionManager.openConnection();
+		Statement statement= connection.createStatement();
+		ResultSet resultSet= statement.executeQuery("");
+		List<BusEntity> busList = new ArrayList();
+		while(resultSet.next())
+		{
+			//busNo,busName, busType, noOfSeats, fare, boardingId
+			BusEntity busEntity = new BusEntity();
+			busEntity.setBusNo(resultSet.getInt("busNo"));
+			busEntity.setBusName(resultSet.getString("busName"));
+			busEntity.setBusType(resultSet.getString("busType"));
+			busEntity.setNoOfSeats(resultSet.getInt("noOfSeats"));
+			busEntity.setFare(resultSet.getDouble("fare"));
+			busEntity.setBoardingId(resultSet.getInt("boardingId"));
+		}
+		ConnectionManager.closeConnection();
+		return busList;
+	}
 }

@@ -1,9 +1,7 @@
 package com.virtusa.model;
 
-import java.sql.Time;
-
-public class ModifyServiceModel {
-
+public class ModifyServiceModel 
+{
 	private String busNo;
 	private String to;
 	private String from;
@@ -44,6 +42,4 @@ public class ModifyServiceModel {
 		return "ModifyServiceModel [busNo=" + busNo + ", to=" + to + ", from=" + from + ", busType="
 				+ busType + ", distance=" + distance + "]";
 	}
-	
-	
 }

@@ -77,20 +77,21 @@ public class AdminController {
 			addAdmin.mainAddAdminView();
 		}
 	}
-	
-	public void addService(String from, String to, String type, double fare,
-				float distance, Time departureTime, Time arrivalTime, String serviceNo)
+	/*
+	 * busNo,busName, bustype, noOfSeats, fare, boardingId
+	 */
+	public void addService(int busNo, String busName, String busType, int noOfSeats, double fare, int boardingId) 
 	{
-		AddServicesModel addServicesModel = new AddServicesModel();
-		addServicesModel.setFrom(from);
-		addServicesModel.setTo(to);
-		addServicesModel.setType(type);
-		addServicesModel.setFare(fare);
-		addServicesModel.setDistance(distance);
-		addServicesModel.setDepartureTime(departureTime);
-		addServicesModel.setArrivalTime(arrivalTime);
-		addServicesModel.setServiceNo(serviceNo);
+		// TODO Auto-generated method stub
 		
+		AddServicesModel addServicesModel = new AddServicesModel();
+		addServicesModel.setBusNo(busNo);
+		addServicesModel.setBusName(busName);
+		addServicesModel.setBusType(busType);
+		addServicesModel.setNoOfSeats(noOfSeats);
+		addServicesModel.setFare(fare);
+		addServicesModel.setBoardingId(boardingId);
+	
 		AdminService_Imp userService=new AdminService_Imp(); 
 		try 
 		{
@@ -114,7 +115,6 @@ public class AdminController {
 			addServicesView.mainAddServicesView();
 	
 		}
-	
 	}
 	
 	public void modifyService(String busNo, String to, String from, String busType, int distance) 
@@ -143,6 +143,9 @@ public class AdminController {
 			modifyServicesView.mainModifyServiceView();
 		}
 	}
+
+
+
 	
 		
 		
