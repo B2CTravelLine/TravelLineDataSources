@@ -1,19 +1,16 @@
 package com.virtusa.model;
 
-import java.util.Date;
-
 public class PaymentModel {
 
 	private String CardHolderName;
-	private long CardNo;
+	private long CreditCardNumber;
 	private int CVV;
 	@Override
 	public String toString() {
-		return "PaymentModel [CardHolderName=" + CardHolderName + ", CardNo=" + CardNo + ", CVV=" + CVV
-				+ ", ExpiryDate=" + ExpiryDate + ", ToatlFare=" + ToatlFare + "]";
+		return "PaymentModel [CardHolderName=" + CardHolderName + ", CreditCardNumber=" + CardHolderName + ", CVV=" + CVV+",ToatlFareAmount=" + ToatlFareAmount + "]";
 	}
-	private Date ExpiryDate;
-	private double ToatlFare;
+	
+	private double ToatlFareAmount;
 	public String getCardHolderName() {
 		return CardHolderName;
 	}
@@ -21,10 +18,10 @@ public class PaymentModel {
 		CardHolderName = cardHolderName;
 	}
 	public long getCardNo() {
-		return CardNo;
+		return CreditCardNumber;
 	}
 	public void setCardNo(long cardNo) {
-		CardNo = cardNo;
+		CreditCardNumber = cardNo;
 	}
 	public int getCVV() {
 		return CVV;
@@ -32,16 +29,16 @@ public class PaymentModel {
 	public void setCVV(int cVV) {
 		CVV = cVV;
 	}
-	public Date getExpiryDate() {
-		return ExpiryDate;
+	
+	public double getToatlFareAmount() {
+		return ToatlFareAmount;
 	}
-	public void setExpiryDate(Date expiryDate) {
-		ExpiryDate = expiryDate;
+	public void setToatlFareAmount(double ToatlFareAmount) {
+		ToatlFareAmount = ToatlFareAmount;
 	}
-	public double getToatlFare() {
-		return ToatlFare;
-	}
-	public void setToatlFare(double toatlFare) {
-		ToatlFare = toatlFare;
+	public void setCreditCardNumber(int creditCardNumber) {
+		// TODO Auto-generated method stub
+		
 	}
 }
+   
