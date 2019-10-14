@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import com.virtusa.dao.PassengerDAO;
 import com.virtusa.model.BoardingModel;
-import com.virtusa.model.BusModel;
+import com.virtusa.model.Buses;
 import com.virtusa.model.SeatModel;
 
 public class PassengerService_Imp implements PassengerService{
@@ -16,7 +16,7 @@ public class PassengerService_Imp implements PassengerService{
 		return passengerDAO.showBuses(boardingModel);
 	}
 	
-	public boolean selectAvlBus(BusModel busModel) throws ClassNotFoundException, SQLException
+	public boolean selectAvlBus(Buses busModel) throws ClassNotFoundException, SQLException
 	{
 		return passengerDAO.selectBus(busModel);
 	}

@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.virtusa.model.BoardingModel;
-import com.virtusa.model.BusModel;
+import com.virtusa.model.Buses;
 import com.virtusa.model.SeatModel;
 import com.virtusa.repository.BusRepository;
 import com.virtusa.utilities.ConnectionManager;
@@ -17,7 +17,7 @@ public class PassengerDAO {
 	{
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
-		PreparedStatement statement=con.prepareStatement("select * from bus where username=? and password=?");
+		PreparedStatement statement=con.prepareStatement("select * from boarding inner join   where username=? and password=?");
 		statement.setString(1,boardingModel.getFrom());
 		statement.setString(2, boardingModel.getTo());
 		statement.setDate(3, boardingModel.getJourneyDate());
@@ -45,7 +45,7 @@ public class PassengerDAO {
 		return false;
 		
 	}*/
-	public boolean selectBus(BusModel busModel) throws ClassNotFoundException, SQLException
+	public boolean selectBus(Buses busModel) throws ClassNotFoundException, SQLException
 	{
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();

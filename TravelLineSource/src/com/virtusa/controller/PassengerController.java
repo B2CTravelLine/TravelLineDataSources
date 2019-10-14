@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 import com.virtusa.model.BoardingModel;
-import com.virtusa.model.BusModel;
+import com.virtusa.model.Buses;
 import com.virtusa.model.SeatModel;
 import com.virtusa.services.PassengerService_Imp;
 import com.virtusa.view.BusView;
@@ -36,12 +36,12 @@ public class PassengerController {
 		}
 		catch(Exception e)
 		{
-			System.out.println("Buses not availables");
+			System.out.println("Buses  availables");
 		}
 	}
 	public void selectBus(String busType,String depatureTime,String arrivalTime)
 	{
-		BusModel busModel=new BusModel();
+		Buses busModel=new Buses();
 		busModel.setBusType(busType);
 		busModel.setDepatureTime(depatureTime);
 		busModel.setArrivalTime(arrivalTime);
