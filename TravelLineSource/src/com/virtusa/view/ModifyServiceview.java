@@ -4,17 +4,7 @@ package com.virtusa.view;
 import java.util.Scanner;
 
 import com.virtusa.controller.AdminController;
-/**
- * 
- * @author nishi
- *private int busNo;
-	private String busName;
-	private String busType;
-	private int noOfSeats;
-	private double fare;
-	private int boardingId;
-	
- */
+
 
 public class ModifyServiceview {
 	@SuppressWarnings({ "resource" })

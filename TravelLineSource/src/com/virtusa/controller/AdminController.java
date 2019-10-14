@@ -55,10 +55,6 @@ public void Verification(String userName,String password) {
 		}
 	}
 
-	
-
-	
-	
 	public void registerAdmin(String userName,String Password,String email,int age ,String gender)
 	{
 		AddAdminModel  addadminModel=new AddAdminModel();
@@ -136,7 +132,7 @@ public void Verification(String userName,String password) {
 	
 	}
 	
-public void modifyService(int busNo,String busName,String busType,int noOfSeats,int fare,int boardingId) 
+public void modifyService(int busNo,String busName,String busType,int noOfSeats,double fare,int boardingId) 
 	{
 		ModifyServiceModel modifyServiceModel = new ModifyServiceModel();
 		modifyServiceModel.setBusNo(busNo);
@@ -203,6 +199,11 @@ public void viewFeedbackService(String name, String emailId, String comments) {
 
 		
 	}
+
+public void addFeedbackService(String name, String emailId, String comment) {
+	// TODO Auto-generated method stub
+	
+}
 		
 
 

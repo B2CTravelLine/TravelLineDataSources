@@ -21,50 +21,46 @@ import com.virtusa.utilities.ConnectionManager;
 
 public class AdminDAO 
 {
+	@SuppressWarnings({ "static-access", "unused" })
 	public boolean adminVerification(AdminLoginModel adminLoginModel) throws ClassNotFoundException, SQLException
 	{
-		try {
+		try 
+		{
 
-		ConnectionManager connectionUtility=new ConnectionManager();
-		Connection connection=connectionUtility.openConnection();
+			ConnectionManager connectionUtility=new ConnectionManager();
+			Connection connection=connectionUtility.openConnection();
 		
-	String query="SELECT * FROM Admin WHERE username='"+adminLoginModel.getUserName() +"' AND Password= '"+adminLoginModel.getPassword()+"'";
-	PreparedStatement statement=connection.prepareStatement(query);
+			String query="SELECT * FROM Admin WHERE username='"+adminLoginModel.getUserName() +"' AND Password= '"+adminLoginModel.getPassword()+"'";
+			PreparedStatement statement=connection.prepareStatement(query);
 		
-		ResultSet rs=statement.executeQuery();
-		while(rs.next()) {
-			String username=rs.getString("username");
-			String password=rs.getString("Password");
-			return true;
-		}
-		rs.close();
-		connection.close();
-		
-			
-		
-		
-	} catch (ClassNotFoundException e) {
+			ResultSet rs=statement.executeQuery();
+			while(rs.next())
+			{
+				String username=rs.getString("username");
+				String password=rs.getString("Password");
+				return true;
+			}
+			rs.close();
+			connection.close();
+		} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (SQLException e) {
+			e.printStackTrace();
+			} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 		return false;
-	}
-
-
-
-
-		
+}
+	
+	@SuppressWarnings("static-access")
 	public boolean adminStoreVerification(AddAdminModel addadminModel)throws ClassNotFoundException, SQLException 
 	{
-		try {
-
-		ConnectionManager connectionUtility=new ConnectionManager();
-		Connection con=connectionUtility.openConnection();
+		try 
+		{
+			ConnectionManager connectionUtility=new ConnectionManager();
+			Connection con=connectionUtility.openConnection();
 		
-		String querys = "INSERT INTO Admin VALUES ("
+			String querys = "INSERT INTO Admin VALUES ("
 			    + " ?, ?, ?, ?, ?)";
 		// set all the preparedstatement parameters
 		PreparedStatement st = con.prepareStatement(querys);
@@ -79,10 +75,7 @@ public class AdminDAO
 		st.executeUpdate();
 
 		// st.close();
-
-
 		
-			
 		st.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -93,6 +86,7 @@ public class AdminDAO
 		}
 
 
+	@SuppressWarnings("static-access")
 	public boolean addServiceVerification(AddServicesModel addServicesModel) throws ClassNotFoundException,SQLException {
 		// TODO Auto-generated method stub
 		
@@ -122,6 +116,7 @@ public class AdminDAO
 
 
 
+	@SuppressWarnings("static-access")
 	public boolean modifyServiceVerification(ModifyServiceModel modifyServiceModel)  throws ClassNotFoundException,SQLException{
 		// TODO Auto-generated method stub
 		try {	
@@ -135,7 +130,7 @@ public class AdminDAO
 			statement.setString(2,modifyServiceModel.getBusName());
 			statement.setString(3, modifyServiceModel.getBusType());
 			statement.setInt(4, modifyServiceModel.getNoOfSeats());		
-			statement.setInt(5, modifyServiceModel.getFare());
+			statement.setDouble(5, modifyServiceModel.getFare());
 			statement.setInt(6,modifyServiceModel.getBoardingId());
 			
 			statement.executeUpdate();
@@ -149,6 +144,7 @@ public class AdminDAO
 					}
 
 
+	@SuppressWarnings("static-access")
 	public boolean viewFeedbackVerification(FeedBackModel feedbackModel) throws ClassNotFoundException, SQLException 
 	{
 		try {
@@ -167,12 +163,12 @@ public class AdminDAO
 	        System.out.println(name+"           "+ emailId+"         "+comments);
 		 return true;
 	}
-	rs.close();
-	connection.close();
-	}catch (SQLException e) {
+		rs.close();
+		connection.close();
+		}catch (SQLException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+			e.printStackTrace();
+		}
 		return false;
 	}
 	

@@ -1,7 +1,5 @@
 package com.virtusa.test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
