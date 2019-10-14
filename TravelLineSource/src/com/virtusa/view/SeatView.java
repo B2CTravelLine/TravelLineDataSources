@@ -22,6 +22,6 @@ public class SeatView {
 		System.out.println("enter seat type");
 		String seatType=sc.next();
 		PassengerController passengerController=new PassengerController();
-		passengerController.selectSeat(noofSeats,seatType);
+		//passengerController.selectSeat(noofSeats,seatType);
 	}
 }
