@@ -76,9 +76,9 @@ public class BoardingView {
 		System.out.println("enter Dropping Point");
 		String droppingPoint=sc.next();
 		System.out.println("enter Journey date");
-		//Date journeyDate=(Date) new SimpleDateFormat("dd/mm/yyyy").parse(sc.next());
-		//LocalDate journeyDate=new LocalDate("yyyy/mm/dd");
-		//DateTimeFormatter dateTimeFormatter=new DateTimeFormatter.ofPattern("dd/mm/yyyy");
+		//Date journeyDate=(Date) new SimpleDateFormat("dd-mm-yyyy").parse(sc.next());
+		//LocalDate journeyDate=new LocalDate("yyyy-mm-dd");
+		//DateTimeFormatter dateTimeFormatter=new DateTimeFormatter.ofPattern("dd-mm-yyyy");
 		//String journeyDate=sc.next();
 	
 		 //System.out.print("Hire Date(DD/MM/YYYY):");
