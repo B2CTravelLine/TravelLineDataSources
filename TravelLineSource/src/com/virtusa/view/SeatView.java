@@ -9,8 +9,8 @@ public class SeatView {
 	{
 		Scanner sc=new Scanner(System.in);
 		
-		System.out.println("=======Enter seat Details======");
-		System.out.println("enter no of seats to book ");
+		
+		System.out.println("seats are reserved ");
 		int noofSeats=sc.nextInt();
 		int seatsLimit=6;
 		if(noofSeats>seatsLimit)

@@ -4,7 +4,7 @@ public class PassengerDetailsModel {
 
 	private String Name;
 	private int age;
-	private int emailid;
+	
 	private String Gender;
 	public String getName() {
 		return Name;
@@ -15,20 +15,16 @@ public class PassengerDetailsModel {
 	public int getAge() {
 		return age;
 	}
+
+	
 	@Override
 	public String toString() {
-		return "PassengerDetailsModel [Name=" + Name + ", age=" + age + ", emailid=" + emailid + ", Gender=" + Gender
-				+ "]";
+		return "PassengerDetailsModel [Name=" + Name + ", age=" + age + ", Gender=" + Gender + "]";
 	}
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getEmailid() {
-		return emailid;
-	}
-	public void setEmailid(int emailid) {
-		this.emailid = emailid;
-	}
+	
 	public String getGender() {
 		return Gender;
 	}

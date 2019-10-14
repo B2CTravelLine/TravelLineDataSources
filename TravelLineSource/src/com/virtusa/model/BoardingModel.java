@@ -24,6 +24,7 @@ public class BoardingModel {
 
 	
 	
+	
 	public Date getJourneyDate() {
 		return journeyDate;
 	}

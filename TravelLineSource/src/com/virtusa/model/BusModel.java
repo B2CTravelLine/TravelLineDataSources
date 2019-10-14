@@ -1,9 +1,7 @@
 package com.virtusa.model;
 
-import java.sql.Time;
+public class BusModel {
 
-public class Buses {
-	
 	private int busNo;
 	private String busName;
 	private String BusType;

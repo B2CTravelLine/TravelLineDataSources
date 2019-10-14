@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.virtusa.model.BoardingModel;
-import com.virtusa.model.Buses;
+import com.virtusa.model.BusModel;
+
 import com.virtusa.model.SeatModel;
 import com.virtusa.repository.BusRepository;
 import com.virtusa.utilities.ConnectionManager;
@@ -53,11 +54,12 @@ public class PassengerDAO {
 		if(bid==0) {
 			System.out.println("buses not available");
 		}
+		
 		PreparedStatement statement=con.prepareStatement("select b.* from bus b join boarding bo on b. BOARDING_ID=bo.BOARDING_ID where b.BOARDING_ID=?");
 		statement.setInt(1, bid);
 		ResultSet rs=statement.executeQuery();
-		List<Buses> list=new ArrayList<Buses>();
-		Buses bus=new Buses();
+		List<BusModel> list=new ArrayList<BusModel>();
+		BusModel bus=new BusModel();
 		while(rs.next()) {
 			bus.setBusNo(rs.getInt(1));
 			bus.setBusName(rs.getString(2));
@@ -66,26 +68,45 @@ public class PassengerDAO {
 			bus.setFare(rs.getInt(5));
 			
 			list.add(bus);
-			bus=new Buses();
+			bus=new BusModel();
 			
 		}
-		for(Buses i : list) {
+		for(BusModel i : list) {
 			System.out.println(i);
 		}
 		return true;   
 	}
 	
 	
-	public boolean selectBus(Buses busModel) throws ClassNotFoundException, SQLException
+	public boolean selectBus(BusModel busModel) throws ClassNotFoundException, SQLException
 	{
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
-		PreparedStatement statement1=con.prepareStatement("select * from bus b where b.bus_number=? and noofseats>?");
+	
+		PreparedStatement statement=con.prepareStatement("select noofseats from bus  where bus_number=?");
+		statement.setInt(1,busModel.getBusNo());
+		int seats=0;
 		
-		//if(busModel.getDepatureTime().equals("")&&busModel.getArrivalTime().equals("")&&busModel.getBusType().equals(""))
-			//return true;
-		return false;
+		//statement.setInt(2,busModel.getTotalSeats());
+		ResultSet rs1=statement.executeQuery();
+		//seats=rs1.getInt('noofseats');
+		while(rs1.next()) {
+			seats=rs1.getInt(1);}
+		if(seats<=busModel.getTotalSeats())
+		{
+			return true;
+		}
+		else
+			return false;
+		/*if((statement.getResultSet()).equals(null)) {
+			
+			return false;
+		}
 		
+		return true;
+		*/
+		
+	
 	}
 	public boolean bookSeat(SeatModel seatModel)
 	{

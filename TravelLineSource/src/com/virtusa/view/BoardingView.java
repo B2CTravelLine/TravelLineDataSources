@@ -75,12 +75,14 @@ public class BoardingView {
 		String boardingPoint=sc.next();
 		System.out.println("enter Dropping Point");
 		String droppingPoint=sc.next();
-		System.out.println("enter Journey date");
+		System.out.println("enter Journey date(yyyy-mm--dd)");
 		//Date journeyDate=(Date) new SimpleDateFormat("dd-mm-yyyy").parse(sc.next());
 		//LocalDate journeyDate=new LocalDate("yyyy-mm-dd");
 		//DateTimeFormatter dateTimeFormatter=new DateTimeFormatter.ofPattern("dd-mm-yyyy");
 		//String journeyDate=sc.next();
-	
+	/*
+	 * 
+	 */
 		 //System.out.print("Hire Date(DD/MM/YYYY):");
 			String journeyDate=sc.next();
 			
@@ -97,7 +99,7 @@ public class BoardingView {
 			
 			Date travelDate=Date.valueOf(LocalDate.of(year, month, dayOfMonth));
 		 
-		//LocalDate date=new LocalDate.parse(date,dateTimeFormatter);
+		//LocalDate travelDate=LocalDate.of(year, month, dayOfMonth);
 		PassengerController passengerController=new PassengerController();
 		passengerController.showBuses(boardingPoint,droppingPoint,travelDate);
 	}
