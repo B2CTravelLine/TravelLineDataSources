@@ -35,8 +35,8 @@ public void Verification(String userName,String password) {
 	verf=userService.Verification(adminLoginModel);	
 	
 	System.out.println(verf);
-	System.out.println(adminLoginModel.getUserName());
-	System.out.println(adminLoginModel.getPassword());
+	//System.out.println(adminLoginModel.getUserName());
+	//System.out.println(adminLoginModel.getPassword());
 		
 		if(verf==true) {
 			System.out.println("Admin Login Successfull");
