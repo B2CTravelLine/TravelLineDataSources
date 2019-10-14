@@ -10,20 +10,14 @@ public class BusView {
 	{
 		Scanner sc=new Scanner(System.in);
 
-		System.out.println("=======Bus View======");
-		//System.out.println("enter service no");
-		//int serviceNo = sc.nextInt();
-		System.out.println("enter BusType");
-		String busType=sc.next();
-		System.out.println("enter DepatureTime");
-		String depatureTime=sc.next();
-		System.out.println("enter ArrivalTime");
-		String arrivalTime=sc.next();
-		//System.out.println("enter FareAmount");
-		//double fareAmount = sc.nextDouble();
+		System.out.println("enter bus no");
+		int busNo = sc.nextInt();
+		System.out.println("enter noof seats to book");
+		int noofseats=sc.nextInt();
+		
 		
 		PassengerController passengerController=new PassengerController();
-		passengerController.selectBus(busType,depatureTime,arrivalTime);
+		passengerController.selectBus(busNo,noofseats);
 		
 	}
 

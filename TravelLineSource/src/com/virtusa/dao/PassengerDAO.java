@@ -17,6 +17,7 @@ import com.virtusa.utilities.ConnectionManager;
 public class PassengerDAO {
 
 
+	@SuppressWarnings("static-access")
 	public boolean showBuses(BoardingModel boardingModel) throws ClassNotFoundException, SQLException 
 	{
 	/*	ConnectionManager connectionUtility=new ConnectionManager();
@@ -38,8 +39,8 @@ public class PassengerDAO {
 	*/	
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
-		 String str="2019-11-10";  
-		    Date date=Date.valueOf(str);
+		// String str="2019-11-10";  
+		  //  Date date=Date.valueOf(str);
 		PreparedStatement statement1=con.prepareStatement("select b.* from boarding b where b.BROADING_POINT=? and b.DROPPING_POINT=? and b.JOURNEY_DATE=?");
 		statement1.setString(1,boardingModel.getFrom());
 		statement1.setString(2,boardingModel.getTo());
@@ -49,7 +50,9 @@ public class PassengerDAO {
 		while(rs1.next()) {
 			bid=rs1.getInt(1);}
 		
-		
+		if(bid==0) {
+			System.out.println("buses not available");
+		}
 		PreparedStatement statement=con.prepareStatement("select b.* from bus b join boarding bo on b. BOARDING_ID=bo.BOARDING_ID where b.BOARDING_ID=?");
 		statement.setInt(1, bid);
 		ResultSet rs=statement.executeQuery();
@@ -72,20 +75,12 @@ public class PassengerDAO {
 		return true;   
 	}
 	
-	/*public boolean showBuses(BoardingModel boardingModel) 
-	{
-		if(boardingModel.getFrom().equals(BusRepository.getBusRepository().get(0).getBoardingPoint()) && boardingModel.getTo().equals(BusRepository.getBusRepository().get(0).getDroppingPoint())&&boardingModel.getJourneyDate().equals(BusRepository.getBusRepository().get(0).getJourneyDate()))
-			
-		{
-			return true;
-		}
-		return false;
-		
-	}*/
+	
 	public boolean selectBus(Buses busModel) throws ClassNotFoundException, SQLException
 	{
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
+		PreparedStatement statement1=con.prepareStatement("select * from bus b where b.bus_number=? and noofseats>?");
 		
 		//if(busModel.getDepatureTime().equals("")&&busModel.getArrivalTime().equals("")&&busModel.getBusType().equals(""))
 			//return true;

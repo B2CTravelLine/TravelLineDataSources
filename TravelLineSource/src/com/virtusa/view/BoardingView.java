@@ -84,22 +84,22 @@ public class BoardingView {
 		 //System.out.print("Hire Date(DD/MM/YYYY):");
 			String journeyDate=sc.next();
 			
-			StringTokenizer tokens=new StringTokenizer(journeyDate,"/");
+			StringTokenizer tokens=new StringTokenizer(journeyDate,"-");
 			
 			List<String> tokensList=new ArrayList<>();
 			while(tokens.hasMoreTokens()) {
 				tokensList.add(tokens.nextToken());
 			}
 			
-			int dayOfMonth=Integer.parseInt(tokensList.get(0));
+			int dayOfMonth=Integer.parseInt(tokensList.get(2));
 			int month=Integer.parseInt(tokensList.get(1));
-			int year=Integer.parseInt(tokensList.get(2));
+			int year=Integer.parseInt(tokensList.get(0));
 			
-			Date hireDate=Date.valueOf(LocalDate.of(year, month, dayOfMonth));
+			Date travelDate=Date.valueOf(LocalDate.of(year, month, dayOfMonth));
 		 
 		//LocalDate date=new LocalDate.parse(date,dateTimeFormatter);
 		PassengerController passengerController=new PassengerController();
-		passengerController.showBuses(boardingPoint,droppingPoint,hireDate);
+		passengerController.showBuses(boardingPoint,droppingPoint,travelDate);
 	}
 }
 

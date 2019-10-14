@@ -39,12 +39,13 @@ public class PassengerController {
 			System.out.println("Buses  availables");
 		}
 	}
-	public void selectBus(String busType,String depatureTime,String arrivalTime)
+	public void selectBus(int busNo,int noofseats)
 	{
 		Buses busModel=new Buses();
-		busModel.setBusType(busType);
-		busModel.setDepatureTime(depatureTime);
-		busModel.setArrivalTime(arrivalTime);
+		//busModel.setBusType(busType);
+		//busModel.setDepatureTime(depatureTime);
+		//busModel.setArrivalTime(arrivalTime);
+		busModel.setTotalSeats(noofseats);
 		PassengerService_Imp passengerservice=new PassengerService_Imp();
 		try
 		{
@@ -56,12 +57,12 @@ public class PassengerController {
 			}
 			else
 			{
-				System.out.println("Buses not availables");
+				System.out.println("seats not availables");
 			}
 		}
 		catch(Exception e)
 		{
-			System.out.println("buses not availables");
+			System.out.println("seats not availables");
 		}
 	}
 	public void selectSeat(int noofSeats,String seatType)
