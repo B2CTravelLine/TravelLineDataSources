@@ -2,44 +2,87 @@ package com.virtusa.model;
 
 public class ModifyServiceModel 
 {
-	private String busNo;
-	private String to;
-	private String from;
+	private int busNo;
+	private String busName;
 	private String busType;
-	private double distance;
-	public String getBusNo() {
+	private int noOfSeats;
+	private double fare;
+	private int boardingId;
+	/**
+	 * @return the busNo
+	 */
+	public int getBusNo() {
 		return busNo;
 	}
-	public void setBusNo(String busNo) {
+	/**
+	 * @param busNo the busNo to set
+	 */
+	public void setBusNo(int busNo) {
 		this.busNo = busNo;
 	}
-	public String getTo() {
-		return to;
+	/**
+	 * @return the busName
+	 */
+	public String getBusName() {
+		return busName;
 	}
-	public void setTo(String to) {
-		this.to = to;
+	/**
+	 * @param busName the busName to set
+	 */
+	public void setBusName(String busName) {
+		this.busName = busName;
 	}
-	public String getFrom() {
-		return from;
-	}
-	public void setFrom(String from) {
-		this.from = from;
-	}
+	/**
+	 * @return the busType
+	 */
 	public String getBusType() {
 		return busType;
 	}
+	/**
+	 * @param busType the busType to set
+	 */
 	public void setBusType(String busType) {
 		this.busType = busType;
 	}
-	public double getDistance() {
-		return distance;
+	/**
+	 * @return the noOfSeats
+	 */
+	public int getNoOfSeats() {
+		return noOfSeats;
 	}
-	public void setDistance(double distance) {
-		this.distance = distance;
+	/**
+	 * @param noOfSeats the noOfSeats to set
+	 */
+	public void setNoOfSeats(int noOfSeats) {
+		this.noOfSeats = noOfSeats;
+	}
+	/**
+	 * @return the fare
+	 */
+	public double getFare() {
+		return fare;
+	}
+	/**
+	 * @param fare the fare to set
+	 */
+	public void setFare(double fare) {
+		this.fare = fare;
+	}
+	/**
+	 * @return the boardingId
+	 */
+	public int getBoardingId() {
+		return boardingId;
+	}
+	/**
+	 * @param boardingId the boardingId to set
+	 */
+	public void setBoardingId(int boardingId) {
+		this.boardingId = boardingId;
 	}
 	@Override
 	public String toString() {
-		return "ModifyServiceModel [busNo=" + busNo + ", to=" + to + ", from=" + from + ", busType="
-				+ busType + ", distance=" + distance + "]";
+		return "ModifyServiceModel [busNo=" + busNo + ", busName=" + busName + ", busType=" + busType + ", noOfSeats="
+				+ noOfSeats + ", fare=" + fare + ", boardingId=" + boardingId + "]";
 	}
 }

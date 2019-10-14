@@ -1,6 +1,6 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  package com.virtusa.controller;
+package com.virtusa.controller;
 
-import java.sql.Time;
+//import java.sql.Time;
 
 import org.omg.CORBA.UserException;
 
@@ -8,29 +8,37 @@ import com.virtusa.helper.Factory_Admin;
 import com.virtusa.model.AddAdminModel;
 import com.virtusa.model.AddServicesModel;
 import com.virtusa.model.AdminLoginModel;
+import com.virtusa.model.FeedBackModel;
 import com.virtusa.model.ModifyServiceModel;
 import com.virtusa.services.AdminService_Imp;
 import com.virtusa.view.AddAdminView;
+//import com.virtusa.view.AddAdminView;
 import com.virtusa.view.AddServicesView;
 import com.virtusa.view.AdminLoginView;
 import com.virtusa.view.AdminOptionsView;
 import com.virtusa.view.ErrorView;
+import com.virtusa.view.FeedBackView;
 import com.virtusa.view.ModifyServiceview;
 
-public class AdminController {
-	
-	
-	public void Verification(String userName,String password) {
+public class AdminController
+{
+public void Verification(String userName,String password) {
 		
 		
 		AdminLoginModel adminLoginModel=new AdminLoginModel();
-		adminLoginModel.setAdminName(userName);
-		adminLoginModel.setAdminPassword(password);
+		adminLoginModel.setUserName(userName);
+		adminLoginModel.setPassword(password);
+		boolean verf ;
 		AdminService_Imp userService=new AdminService_Imp(); 
 		try {
-	boolean userVal=userService.adminVerification(adminLoginModel);	
+	
+	verf=userService.Verification(adminLoginModel);	
+	
+	System.out.println(verf);
+	System.out.println(adminLoginModel.getUserName());
+	System.out.println(adminLoginModel.getPassword());
 		
-		if(userVal) {
+		if(verf==true) {
 			System.out.println("Admin Login Successfull");
 			AdminOptionsView adminView=new AdminOptionsView();
 			adminView.mainAdminOptionsView();
@@ -48,24 +56,33 @@ public class AdminController {
 	}
 
 	
+
 	
-	public void registerAdmin(String AdminName,String AdminPassword,String Gender,String Email,int age)
+	
+	public void registerAdmin(String userName,String Password,String email,int age ,String gender)
 	{
-		AdminLoginModel adminLoginModel=new AdminLoginModel();
-		adminLoginModel.setAdminName(AdminName);
-		adminLoginModel.setAdminPassword(AdminPassword);
-		adminLoginModel.setEmail(Email);
-		adminLoginModel.setAge(age);
-		adminLoginModel.setGender(Gender);
-		AdminService_Imp userService=new AdminService_Imp(); 
-		try {
-	boolean userVal=userService.adminStoreVerification(adminLoginModel);	
+		AddAdminModel  addadminModel=new AddAdminModel();
+		addadminModel.setUserName(userName);
+		addadminModel.setPassword(Password);
+		addadminModel.setEmail(email);
+		addadminModel.setAge(age);
+		addadminModel.setGender(gender);
+		boolean verf1;
+		AdminService_Imp adminService=new AdminService_Imp(); 
 		
-		if(userVal) {
+		try {
+	verf1=adminService.adminStoreVerification(addadminModel);	
+	
+	// AddAdminView adminView=new AddAdminView();
+	
+	System.out.println(verf1);
+	System.out.println(addadminModel.getUserName());
+	System.out.println(addadminModel.getPassword());
+		if(verf1==true) {
 			System.out.println("Admin added Successfull");
 			
-			AdminOptionsView adminView=new AdminOptionsView();
-			adminView.mainAdminOptionsView();
+			AdminOptionsView adminOptionView=new AdminOptionsView();
+			adminOptionView.mainAdminOptionsView();
 		}else {
 			ErrorView errorView=new ErrorView();
 			errorView.authenticationError();
@@ -73,30 +90,31 @@ public class AdminController {
 		
 		}catch(Exception e) {
 			System.out.println("new admin is not added");
-			AddAdminView addAdmin=new AddAdminView();
-			addAdmin.mainAddAdminView();
+			AddAdminView addAdminView=new AddAdminView();
+			addAdminView.mainAddAdminView();
 		}
 	}
-	/*
-	 * busNo,busName, bustype, noOfSeats, fare, boardingId
-	 */
-	public void addService(int busNo, String busName, String busType, int noOfSeats, double fare, int boardingId) 
-	{
+	
+	public void addService(int busNo,String busName,String busType,int noOfSeats,int fare,int boardingId) 
 		// TODO Auto-generated method stub
 		
+	
+	{
 		AddServicesModel addServicesModel = new AddServicesModel();
 		addServicesModel.setBusNo(busNo);
 		addServicesModel.setBusName(busName);
 		addServicesModel.setBusType(busType);
 		addServicesModel.setNoOfSeats(noOfSeats);
+	
 		addServicesModel.setFare(fare);
 		addServicesModel.setBoardingId(boardingId);
-	
-		AdminService_Imp userService=new AdminService_Imp(); 
+
+		 boolean verf2;
+		AdminService_Imp adminService=new AdminService_Imp(); 
 		try 
 		{
-			boolean values =  userService.addServiceVerification(addServicesModel);
-			if(values)
+			verf2 =  adminService.addServiceVerification(addServicesModel);
+			if(verf2==true)
 			{
 				System.out.println("Entered Services are Added Successfully");
 				AdminOptionsView adminOptionsView=new AdminOptionsView();
@@ -115,21 +133,25 @@ public class AdminController {
 			addServicesView.mainAddServicesView();
 	
 		}
+	
 	}
 	
-	public void modifyService(String busNo, String to, String from, String busType, int distance) 
+public void modifyService(int busNo,String busName,String busType,int noOfSeats,int fare,int boardingId) 
 	{
 		ModifyServiceModel modifyServiceModel = new ModifyServiceModel();
 		modifyServiceModel.setBusNo(busNo);
-		modifyServiceModel.setTo(to);
-		modifyServiceModel.setFrom(from);
+		modifyServiceModel.setBusName(busName);
 		modifyServiceModel.setBusType(busType);
-		modifyServiceModel.setDistance(distance);
-		AdminService_Imp userService=new AdminService_Imp(); 
+		modifyServiceModel.setNoOfSeats(noOfSeats);
+		modifyServiceModel.setFare(fare);
+		modifyServiceModel.setBoardingId(boardingId);
+		
+		boolean verf3;
+		AdminService_Imp modifyService=new AdminService_Imp(); 
 		try
 		{
-			boolean value = userService.modifyServiceVerification();
-			if(value)
+			verf3 = modifyService.modifyServiceVerification(modifyServiceModel);
+			if(verf3==true)
 			{
 				System.out.println("Requested Services are Updated");
 				AdminOptionsView adminOptionsView=new AdminOptionsView();
@@ -146,8 +168,43 @@ public class AdminController {
 
 
 
-	
+
+
+public void viewFeedbackService(String name, String emailId, String comments) {
+	// TODO Auto-generated method stub
+	// TODO Auto-generated method stub
+		FeedBackModel feedbackModel = new FeedBackModel();
+		feedbackModel.setName(name);
+		feedbackModel.setEmailId(emailId);
+		feedbackModel.setComments(comments);
 		
+		boolean verf4;
+		AdminService_Imp feedbackService=new AdminService_Imp(); 
+		try 
+		{
+			verf4 =  feedbackService.viewFeedbackVerification(feedbackModel);
+			if(verf4==true)
+			{
+				System.out.println("feedback viewed successfully");
+				AdminOptionsView adminOptionsView=new AdminOptionsView();
+				adminOptionsView.mainAdminOptionsView();
+			}
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			System.out.println("Sorry, we are unable to view feedback");
+			FeedBackView feedbackView=new  FeedBackView();
+			feedbackView.mainFeedbackServiceView();
+
+		}
+
+
 		
 	}
+		
 
+
+
+}

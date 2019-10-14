@@ -3,7 +3,7 @@ package com.virtusa.model;
 public class FeedBackModel {
 	private String Name;
 	private String EmailId;
-	private String Comment;
+	private String Comments;
 	public String getName() {
 		return Name;
 	}
@@ -16,15 +16,16 @@ public class FeedBackModel {
 	public void setEmailId(String emailId) {
 		EmailId = emailId;
 	}
-	public String getComment() {
-		return Comment;
+	public String getComments() {
+		return Comments;
 	}
-	public void setComment(String comment) {
-		Comment = comment;
+	public void setComments(String comments) {
+		Comments = comments;
 	}
 	@Override
 	public String toString() {
-		return "FeedBackModel [Name=" + Name + ", EmailId=" + EmailId + ", Comment=" + Comment + "]";
+		return "FeedBackModel [Name=" + Name + ", EmailId=" + EmailId + ", Comments=" + Comments + "]";
 	}
+	
 	
 }

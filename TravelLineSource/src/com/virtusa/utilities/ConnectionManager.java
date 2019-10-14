@@ -6,8 +6,9 @@ package com.virtusa.utilities;
 
 
 
-	public class ConnectionManager {
-	private static DataSource dataSource=new DataSource();
+	public class ConnectionManager 
+	{
+		private static DataSource dataSource=new DataSource();
 		
 		private static Connection connection=null;
 		public static Connection openConnection() 

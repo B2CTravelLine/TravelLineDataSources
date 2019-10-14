@@ -14,9 +14,9 @@ public class AdminRepository {
 			new ArrayList<Admin>();
 	static{
 		Admin admin=new Admin();
-		admin.setAdminName("bindu");
-		admin.setAdminPassword("bindu");
-		admin.setEmail("bindu@.com");
+		admin.setUserName("bindu");
+		admin.setPassword("bindu");
+		admin.setEmailId("bindu@.com");
 		admin.setGender("female");
 		admin.setAge(20);
 		

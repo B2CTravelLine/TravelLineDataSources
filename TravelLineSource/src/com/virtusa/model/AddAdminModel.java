@@ -2,14 +2,16 @@ package com.virtusa.model;
 
 public class AddAdminModel {
 
-	private String AdminName;
+	private String userName;
 	private String password;
-	private String ConfirmPassword;
-	public String getAdminName() {
-		return AdminName;
+	private String email;
+	private int age;
+	private String gender;
+	public String getUserName() {
+		return userName;
 	}
-	public void setAdminName(String adminName) {
-		AdminName = adminName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;
@@ -17,16 +19,28 @@ public class AddAdminModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmPassword() {
-		return ConfirmPassword;
+	public String getEmail() {
+		return email;
 	}
-	public void setConfirmPassword(String confirmPassword) {
-		ConfirmPassword = confirmPassword;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	@Override
 	public String toString() {
-		return "AddAdminModel [AdminName=" + AdminName + ", password=" + password + ", ConfirmPassword="
-				+ ConfirmPassword + "]";
+		return "AddAdminModel [userName=" + userName + ", password=" + password + ", email=" + email + ", age=" + age
+				+ ", gender=" + gender + "]";
 	}
 	
 }

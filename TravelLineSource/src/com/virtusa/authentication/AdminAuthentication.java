@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class AdminAuthentication {
 
+	@SuppressWarnings({ "unused", "resource" })
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String username=null;
@@ -69,12 +70,6 @@ public class AdminAuthentication {
 	      }catch(SQLException e) {
 		         System.out.println("SQL exception occured" + e);
 	      }
-	      
-		 
-	      
-		
-		
-		
 		return true;
 	}
 

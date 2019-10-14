@@ -12,20 +12,21 @@ import java.util.*;
 
 public class AdminLoginView {
 
-
 	public void mainAdminView() {
-	
+		
 		Scanner sc=new Scanner(System.in);
 		System.out.println("=======Admin View======");
 		
 		
 		System.out.println("enter username");
-		String adminName=sc.next();
+		String username=sc.next();
 		System.out.println("enter password");
-		String adminPassword=sc.next();
+		String Password=sc.next();
 		
 		AdminController adminController=new AdminController();
-		adminController.Verification(adminName,adminPassword);
+		adminController.Verification(username,Password);
 		
 	}
+
+	
 }

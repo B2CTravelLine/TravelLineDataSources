@@ -18,9 +18,6 @@ public class UI {
 		
 		Scanner in = new Scanner(System.in); 
 		  
-		//InputStreamReader reader=
-		//		new InputStreamReader(System.in);
-		//BufferedReader buffer=new BufferedReader(reader);
 		int option=in.nextInt();
 		
 		switch(option)
@@ -33,7 +30,7 @@ public class UI {
 					break;
 			default:System.out.println(" please Enter valid number");
 		}
-		
+
 	}
 
 }

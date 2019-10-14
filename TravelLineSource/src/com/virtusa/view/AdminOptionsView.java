@@ -17,11 +17,12 @@ public class AdminOptionsView {
 		
 		switch(option)
 		{
-			case 1: AddAdminView addAdminView=new AddAdminView(); 
-					addAdminView.mainAddAdminView();
+			case 1:AddAdminView addAdminView=new AddAdminView();
+			       addAdminView.mainAddAdminView();
 					break;
 			case 2:	AddServicesView addServicesView=new AddServicesView();
 					addServicesView.mainAddServicesView();
+					
 					break;
 			case 3:ModifyServiceview modifyServiceview=new  ModifyServiceview();
 					modifyServiceview.mainModifyServiceView();
@@ -31,6 +32,4 @@ public class AdminOptionsView {
 					break;
 		}
 		
-	}
-	
 }

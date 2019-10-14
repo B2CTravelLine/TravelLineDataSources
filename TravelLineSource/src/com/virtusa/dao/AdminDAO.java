@@ -1,6 +1,7 @@
 package com.virtusa.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,115 +11,169 @@ import java.util.List;
 
 import com.virtusa.entities.Admin;
 import com.virtusa.entities.BusEntity;
+import com.virtusa.model.AddAdminModel;
 import com.virtusa.model.AddServicesModel;
 import com.virtusa.model.AdminLoginModel;
+import com.virtusa.model.FeedBackModel;
+import com.virtusa.model.ModifyServiceModel;
 import com.virtusa.repository.AdminRepository;
 import com.virtusa.utilities.ConnectionManager;
 
 public class AdminDAO 
 {
-	public boolean adminStoreVerification(Admin admin) {
-		// TODO Auto-generated method stub
-		return AdminRepository.add(admin);
-	}
-	@SuppressWarnings("static-access")
 	public boolean adminVerification(AdminLoginModel adminLoginModel) throws ClassNotFoundException, SQLException
 	{
+		try {
+
 		ConnectionManager connectionUtility=new ConnectionManager();
-		Connection con=connectionUtility.openConnection();
-		PreparedStatement statement=con.prepareStatement("select * from Admin where admin_name=? and password=?");
-		statement.setString(1,adminLoginModel.getAdminName());
-		statement.setString(2, adminLoginModel.getAdminPassword());
+		Connection connection=connectionUtility.openConnection();
 		
-		if(statement.getResultSet().equals(null))
-		{
-			statement.close();
-			con.close();
-			 connectionUtility.closeConnection();
-			return false;
-		}
-		else
-		{
-			statement.close();
-			con.close();
+	String query="SELECT * FROM Admin WHERE username='"+adminLoginModel.getUserName() +"' AND Password= '"+adminLoginModel.getPassword()+"'";
+	PreparedStatement statement=connection.prepareStatement(query);
+		
+		ResultSet rs=statement.executeQuery();
+		while(rs.next()) {
+			String username=rs.getString("username");
+			String password=rs.getString("Password");
 			return true;
 		}
+		rs.close();
+		connection.close();
 		
+			
+		
+		
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
-	public List<Admin> getAllAdmins() throws ClassNotFoundException, SQLException {
-		Connection connection=ConnectionManager.openConnection();
-
-		 Statement statement=connection.createStatement();
-		 ResultSet resultSet= statement.executeQuery("select * from Employees");
-		 List<Admin> adminList=new ArrayList();
-		
-		 while(resultSet.next()) 
-		 {
-			 Admin admins=new Admin();
-			 admins.setAdminName(resultSet.getString("adminName"));
-			 admins.setAdminPassword(resultSet.getString("adminPassword"));
-			 admins.setEmail(resultSet.getString("email"));
-			 admins.setAge(resultSet.getInt("age"));
-			 admins.setGender(resultSet.getString("gender"));
-		 }
-			 ConnectionManager.closeConnection();
-			 return adminList;
-		 }
-		
-	public boolean storeAdminDetails(Admin admins)throws ClassNotFoundException, SQLException 
-	{
 		return false;
 	}
-	//busNo,busName, busType, noOfSeats, fare, boardingId
-	@SuppressWarnings("static-access")
-	public boolean addServiceVerification(AddServicesModel addServicesModel) throws ClassNotFoundException, SQLException 
+
+
+
+
+		
+	public boolean adminStoreVerification(AddAdminModel addadminModel)throws ClassNotFoundException, SQLException 
 	{
+		try {
+
+		ConnectionManager connectionUtility=new ConnectionManager();
+		Connection con=connectionUtility.openConnection();
+		
+		String querys = "INSERT INTO Admin VALUES ("
+			    + " ?, ?, ?, ?, ?)";
+		// set all the preparedstatement parameters
+		PreparedStatement st = con.prepareStatement(querys);
+
+		st.setString(1, addadminModel.getUserName());
+		st.setString(2, addadminModel.getPassword());
+		st.setString(3, addadminModel.getEmail());
+		st.setInt(4, addadminModel.getAge());
+		st.setString(5, addadminModel.getGender());
+
+		// execute the preparedstatement insert
+		st.executeUpdate();
+
+		// st.close();
+
+
+		
+			
+		st.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+				return true;
+		}
+
+
+	public boolean addServiceVerification(AddServicesModel addServicesModel) throws ClassNotFoundException,SQLException {
+		// TODO Auto-generated method stub
+		
+	try {	
 		ConnectionManager connectionManager= new ConnectionManager();
 		Connection connection = connectionManager.openConnection();
-		PreparedStatement statement = connection.prepareStatement("insert into BusEntity values"
-				+ "busNo=?" + "busName=?" +"busType=?" + "noOfSeats=?" + "fare=?" + "boardingId=?");
+		String query="insert into buses values(?,?,?,?,?,?)";
+		PreparedStatement statement = connection.prepareStatement(query);
 		statement.setInt(1, addServicesModel.getBusNo());
 		statement.setString(2,addServicesModel.getBusName());
 		statement.setString(3, addServicesModel.getBusType());
 		statement.setInt(4, addServicesModel.getNoOfSeats());		
-		statement.setDouble(5, addServicesModel.getFare());
+		statement.setInt(5, addServicesModel.getFare());
 		statement.setInt(6, addServicesModel.getBoardingId());
 		
-		if(statement.getResultSet().equals(null))
-		{
-			statement.close();
-			connection.close();
-			connectionManager.closeConnection();
-			return false;
-		}
-		else
-		{
-			statement.close();
-			connection.close();
-			return true;
-		}
-		
+		statement.executeUpdate();
+				statement.close();
+				} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				}
+
+					return true;
+				}
+
+
+
+
+
+	public boolean modifyServiceVerification(ModifyServiceModel modifyServiceModel)  throws ClassNotFoundException,SQLException{
+		// TODO Auto-generated method stub
+		try {	
+			ConnectionManager connectionManager= new ConnectionManager();
+			Connection connection = connectionManager.openConnection();
+			String query="update buses "
+					+ "set busno=?,busname=?,bustype=?,noOfSeats=?,fare=?"
+					+"where boardingId=?";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, modifyServiceModel.getBusNo());
+			statement.setString(2,modifyServiceModel.getBusName());
+			statement.setString(3, modifyServiceModel.getBusType());
+			statement.setInt(4, modifyServiceModel.getNoOfSeats());		
+			statement.setInt(5, modifyServiceModel.getFare());
+			statement.setInt(6,modifyServiceModel.getBoardingId());
+			
+			statement.executeUpdate();
+					statement.close();
+					} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					}
+
+						return true;
+					}
+
+
+	public boolean viewFeedbackVerification(FeedBackModel feedbackModel) throws ClassNotFoundException, SQLException 
+	{
+		try {
+		ConnectionManager connectionManager= new ConnectionManager();
+		Connection connection = connectionManager.openConnection();
+		String query= "SELECT * FROM feedback ";
+
+		PreparedStatement statement = connection.prepareStatement(query);
+		ResultSet rs=statement.executeQuery();
+		System.out.println("name                emailId        comments");
+	    
+		while(rs.next()) {
+			String name = rs.getString("name");
+			String emailId=rs.getString("emailId");
+			String comments=rs.getString("comments");
+	        System.out.println(name+"           "+ emailId+"         "+comments);
+		 return true;
+	}
+	rs.close();
+	connection.close();
+	}catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return false;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<BusEntity> getAddServices() throws ClassNotFoundException, SQLException
-	{
-		Connection connection= ConnectionManager.openConnection();
-		Statement statement= connection.createStatement();
-		ResultSet resultSet= statement.executeQuery("");
-		List<BusEntity> busList = new ArrayList();
-		while(resultSet.next())
-		{
-			//busNo,busName, busType, noOfSeats, fare, boardingId
-			BusEntity busEntity = new BusEntity();
-			busEntity.setBusNo(resultSet.getInt("busNo"));
-			busEntity.setBusName(resultSet.getString("busName"));
-			busEntity.setBusType(resultSet.getString("busType"));
-			busEntity.setNoOfSeats(resultSet.getInt("noOfSeats"));
-			busEntity.setFare(resultSet.getDouble("fare"));
-			busEntity.setBoardingId(resultSet.getInt("boardingId"));
-		}
-		ConnectionManager.closeConnection();
-		return busList;
-	}
 }

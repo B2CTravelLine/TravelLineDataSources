@@ -12,7 +12,6 @@ import com.virtusa.utilities.ConnectionManager;
 
 
 class TestConnectionManager {
-
 	@Test
 	void testOpenConnection_positive() {
 		try {
@@ -23,5 +22,8 @@ class TestConnectionManager {
 			// TODO Auto-generated catch block
 			assertTrue(false);
 		
-}}}
+}
+		}
+	
+}
  

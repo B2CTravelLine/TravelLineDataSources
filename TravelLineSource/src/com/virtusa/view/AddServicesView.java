@@ -24,22 +24,30 @@ public class AddServicesView {
 	@SuppressWarnings("resource")
 	public void mainAddServicesView()
 	{
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter your Bus No");
-		int busNo = scanner.nextInt();
-		System.out.println("Enter your Bus Name");
-		String busName = scanner.next();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your bus no");
+		int busNo = sc.nextInt();
+		
+		System.out.println("Enter bus name");
+		String busName = sc.next();
+		
 		System.out.println("enter bus type");
-		String busType = scanner.next();
-		System.out.println("Enter No of Seats");
-		int noOfSeats = scanner.nextInt();
-		System.out.println("Enter fare amount");
-		double fare = scanner.nextDouble();
-		System.out.println("Enter Boarding Id");
-		int boardingId = scanner.nextInt();
+		String busType = sc.next();
+		
+		System.out.println("Enter no of seats");
+		int noOfSeats = sc.nextInt();
+		
+		System.out.println("Enter fare");
+		int fare = sc.nextInt();
+		
+		
+		System.out.println("enter boarding id ");
+		int boardingId = sc.nextInt();
 		
 		AdminController adminController = new AdminController();
-		adminController.addService(busNo,busName, busType, noOfSeats, fare, boardingId);
+		adminController.addService(busNo,busName,busType,noOfSeats,fare,boardingId);
+		
+	
 	}
 
 }

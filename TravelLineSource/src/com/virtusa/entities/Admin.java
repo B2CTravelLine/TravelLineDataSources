@@ -2,22 +2,57 @@ package com.virtusa.entities;
 
 import java.util.Date;
 
-public class Admin {
-	private  String AdminName;
-	private String AdminPassword;
-	private String Email;
-	private int Age;
-	private String Gender;
-	
+public class Admin 
+{
+	private String userName;
+	private String password;
+	private String emailId;
+	private int age;
+	private String gender;
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	@Override
+	public String toString() {
+		return "Admin [userName=" + userName + ", password=" + password + ", emailId=" + emailId + ", age=" + age
+				+ ", gender=" + gender + "]";
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((AdminName == null) ? 0 : AdminName.hashCode());
-		result = prime * result + ((AdminPassword == null) ? 0 : AdminPassword.hashCode());
-		result = prime * result + Age;
-		result = prime * result + ((Email == null) ? 0 : Email.hashCode());
-		result = prime * result + ((Gender == null) ? 0 : Gender.hashCode());
+		result = prime * result + age;
+		result = prime * result + ((emailId == null) ? 0 : emailId.hashCode());
+		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
 		return result;
 	}
 	@Override
@@ -29,66 +64,30 @@ public class Admin {
 		if (getClass() != obj.getClass())
 			return false;
 		Admin other = (Admin) obj;
-		if (AdminName == null) {
-			if (other.AdminName != null)
-				return false;
-		} else if (!AdminName.equals(other.AdminName))
+		if (age != other.age)
 			return false;
-		if (AdminPassword == null) {
-			if (other.AdminPassword != null)
+		if (emailId == null) {
+			if (other.emailId != null)
 				return false;
-		} else if (!AdminPassword.equals(other.AdminPassword))
+		} else if (!emailId.equals(other.emailId))
 			return false;
-		if (Age != other.Age)
-			return false;
-		if (Email == null) {
-			if (other.Email != null)
+		if (gender == null) {
+			if (other.gender != null)
 				return false;
-		} else if (!Email.equals(other.Email))
+		} else if (!gender.equals(other.gender))
 			return false;
-		if (Gender == null) {
-			if (other.Gender != null)
+		if (password == null) {
+			if (other.password != null)
 				return false;
-		} else if (!Gender.equals(other.Gender))
+		} else if (!password.equals(other.password))
+			return false;
+		if (userName == null) {
+			if (other.userName != null)
+				return false;
+		} else if (!userName.equals(other.userName))
 			return false;
 		return true;
 	}
 	
-	@Override
-	public String toString() {
-		return "Admin [AdminName=" + AdminName + ", AdminPassword=" + AdminPassword + ", Email=" + Email + ", Age="
-				+ Age + ", Gender=" + Gender + "]";
-	}
-	
-	public String getAdminName() {
-		return AdminName;
-	}
-	public void setAdminName(String adminName) {
-		AdminName = adminName;
-	}
-	public String getAdminPassword() {
-		return AdminPassword;
-	}
-	public void setAdminPassword(String adminPassword) {
-		AdminPassword = adminPassword;
-	}
-	public String getEmail() {
-		return Email;
-	}
-	public void setEmail(String email) {
-		Email = email;
-	}
-	public int getAge() {
-		return Age;
-	}
-	public void setAge(int age) {
-		Age = age;
-	}
-	public String getGender() {
-		return Gender;
-	}
-	public void setGender(String gender) {
-		Gender = gender;
-	}
-	
+
 }
