@@ -18,15 +18,31 @@ System.err.println(LocalDateTime.of(currentDate, userInputTime));
 */
 
 import com.virtusa.controller.AdminController;
+import com.virtusa.validation.AddServicesValidation;
 
 
 public class AddServicesView {
-	@SuppressWarnings("resource")
+	@SuppressWarnings({ "resource", "unused" })
 	public void mainAddServicesView()
 	{
+		
 		Scanner sc = new Scanner(System.in);
+		AddServicesValidation addServicesValidation = new AddServicesValidation();
+		int busNo;
+		boolean validBusNo=false;
+		do {
 		System.out.println("Enter your bus no");
-		int busNo = sc.nextInt();
+		busNo = sc.nextInt();
+		validBusNo= addServicesValidation.validNumber(busNo);
+		
+		if(validBusNo==false)
+		{
+			System.out.println("Enter Valid Number");
+		}
+		}while(!validBusNo);
+		
+		
+		
 		
 		System.out.println("Enter bus name");
 		String busName = sc.next();
