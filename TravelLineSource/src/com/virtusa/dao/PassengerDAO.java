@@ -82,7 +82,7 @@ public class PassengerDAO {
 	{
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
-		int seats=0;
+		int seats=40;
 		PreparedStatement statement=con.prepareStatement("select noofseats from bus  where bus_number=?");
 		statement.setInt(1,busModel.getBusNo());
 		
@@ -145,12 +145,31 @@ public class PassengerDAO {
 	}
 	
 	public boolean addPassengers(PassengerDetailsModel passengerDetailsModel) throws ClassNotFoundException, SQLException {
-		
+		try {
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
-		PreparedStatement statement1=con.prepareStatement("insert into ");
+		PreparedStatement statement1=con.prepareStatement("INSERT INTO passenger VALUES ( ?, ?, ?)");
+		statement1.setString(1, passengerDetailsModel.getName());
 		
-		return false;
+		statement1.setInt(2, passengerDetailsModel.getAge());
+		statement1.setString(3, passengerDetailsModel.getGender());
+
+		// execute the preparedstatement insert
+		statement1.executeUpdate();
+
+
+		
+		statement1.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+				
+		return true;
+		
+
+		
 		
 	}
 

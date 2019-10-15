@@ -1,39 +1,43 @@
 package main;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.virtusa.model.BoardingModel;
+import com.virtusa.model.BusModel;
 import com.virtusa.utilities.ConnectionManager;
 
-public class MainClass {
+public class NewMain {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		System.out.println("hai");
-	
+		// TODO Auto-generated method stub
+		BoardingModel boardingModel=new BoardingModel();
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
-		 String str="2019-11-10";  
-		    Date date=Date.valueOf(str);
+		// String str="2019-11-10";  
+		  //  Date date=Date.valueOf(str);
 		PreparedStatement statement1=con.prepareStatement("select b.* from boarding b where b.BROADING_POINT=? and b.DROPPING_POINT=? and b.JOURNEY_DATE=?");
-		statement1.setString(1,"Guntur");
-		statement1.setString(2, "Hyderabad");
-		statement1.setDate(3,date);
+		statement1.setString(1,boardingModel.getFrom());
+		statement1.setString(2,boardingModel.getTo());
+		statement1.setDate(3, boardingModel.getJourneyDate());
 		ResultSet rs1=statement1.executeQuery();
 		int bid=0;
 		while(rs1.next()) {
 			bid=rs1.getInt(1);}
 		
+		if(bid==0) {
+			System.out.println("buses not available");
+		}
 		
 		PreparedStatement statement=con.prepareStatement("select b.* from bus b join boarding bo on b. BOARDING_ID=bo.BOARDING_ID where b.BOARDING_ID=?");
 		statement.setInt(1, bid);
 		ResultSet rs=statement.executeQuery();
-		List<Bus> list=new ArrayList<Buses>();
-		Bus bus=new Bus();
+		List<BusModel> list=new ArrayList<BusModel>();
+		BusModel bus=new BusModel();
 		while(rs.next()) {
 			bus.setBusNo(rs.getInt(1));
 			bus.setBusName(rs.getString(2));
@@ -42,42 +46,12 @@ public class MainClass {
 			bus.setFare(rs.getInt(5));
 			
 			list.add(bus);
-			bus=new Buses();
+			bus=new BusModel();
 			
 		}
-		for(Buses i : list) {
+		for(BusModel i : list) {
 			System.out.println(i);
 		}
-		
-		/*
-		
-		ConnectionManager connectionUtility=new ConnectionManager();
-		Connection con=connectionUtility.openConnection();
-	
-		PreparedStatement statement=con.prepareStatement("select noofseats from bus  where bus_number=?");
-		statement.setInt(1,1001);
-		int seats=0;
-		System.out.println("hellooo ");
-		
-		
-		//statement.setInt(2,busModel.getTotalSeats());
-		ResultSet rs1=statement.executeQuery();
-		
-         while(rs1.next()) {
-             seats=rs1.getInt(1);
-             System.out.println(seats);
-         }
-		
-			
-		if(seats>=200)
-		{
-			System.out.println(" true");
-		}
-		else
-			System.out.println("false");
-			*/
 	}
-	
-	
 
 }

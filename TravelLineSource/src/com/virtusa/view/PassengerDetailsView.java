@@ -13,8 +13,8 @@ public class PassengerDetailsView {
 		Scanner sc=new Scanner(System.in);
 	
 		System.out.println("=======Enter Passenger Details======");
-		for(int i=0;i<busModel.getTotalSeats();i++)
-		{
+		//for(int i=0;i<busModel.getTotalSeats();i++)
+	//	{
 		
 		System.out.println("enter  Name");
 		String name=sc.next();
@@ -24,7 +24,7 @@ public class PassengerDetailsView {
 		String gender=sc.next();
 		PassengerController passengerController=new  PassengerController();
 		passengerController.storePassengerDetails(name,age,gender);
-		}
+	//	}
 		
 	}
 }
