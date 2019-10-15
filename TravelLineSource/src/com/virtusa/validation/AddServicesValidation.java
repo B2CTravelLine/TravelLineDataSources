@@ -1,5 +1,8 @@
 package com.virtusa.validation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.virtusa.model.AddServicesModel;
 
 /**
@@ -14,6 +17,7 @@ import com.virtusa.model.AddServicesModel;
  */
 public class AddServicesValidation 
 {
+		@SuppressWarnings("unused")
 		public boolean validNumber(int busNo) {
 		// TODO Auto-generated method stub
 			boolean result=false;
@@ -25,12 +29,31 @@ public class AddServicesValidation
 	        {
 	        	return false;
 	        }
-	}
-
-		public boolean validString(String busName) {
-			// TODO Auto-generated method stub
-			return false;
 		}
 
-		
+		public boolean validString(String busName)
+		{
+			 boolean result=false;
+		        char chars[]=busName.toCharArray();
+		        List<Character> alphabets=new ArrayList<>();
+		        for(int i=97;i<=122;i++)
+		        {
+		            alphabets.add((char)i);
+		        }
+		        for(char ch:chars) 
+		        {
+		            if(alphabets.contains(ch))
+		            { result=true;}
+		            else if(!(alphabets.contains(ch)))
+		                {result=false;}
+		         }        
+		       
+		       
+		        return result;
+		   }
+
+
 }
+
+		
+
