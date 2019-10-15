@@ -145,9 +145,13 @@ public class PassengerDAO {
 	}
 	
 	public boolean addPassengers(PassengerDetailsModel passengerDetailsModel) throws ClassNotFoundException, SQLException {
+		
+		BusModel busModel=new BusModel();
 		try {
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
+		for(int i=0;i<busModel.getBusNo();i++)
+		{
 		PreparedStatement statement1=con.prepareStatement("INSERT INTO passenger VALUES ( ?, ?, ?)");
 		statement1.setString(1, passengerDetailsModel.getName());
 		
@@ -160,11 +164,12 @@ public class PassengerDAO {
 
 		
 		statement1.close();
+		}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 				
 		return true;
 		
