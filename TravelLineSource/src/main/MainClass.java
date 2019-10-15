@@ -8,14 +8,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.virtusa.model.Buses;
 import com.virtusa.utilities.ConnectionManager;
 
 public class MainClass {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		System.out.println("hai");
-		
+		/*
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
 		 String str="2019-11-10";  
@@ -49,6 +48,35 @@ public class MainClass {
 		for(Buses i : list) {
 			System.out.println(i);
 		}
+		
+		*/
+		
+		ConnectionManager connectionUtility=new ConnectionManager();
+		Connection con=connectionUtility.openConnection();
+	
+		PreparedStatement statement=con.prepareStatement("select noofseats from bus  where bus_number=?");
+		statement.setInt(1,1001);
+		int seats=0;
+		System.out.println("hellooo ");
+		
+		
+		//statement.setInt(2,busModel.getTotalSeats());
+		ResultSet rs1=statement.executeQuery();
+		
+         while(rs1.next()) {
+             seats=rs1.getInt(1);
+             System.out.println(seats);
+         }
+		
+			
+		if(seats>=200)
+		{
+			System.out.println(" true");
+		}
+		else
+			System.out.println("false");
 	}
+	
+	
 
 }

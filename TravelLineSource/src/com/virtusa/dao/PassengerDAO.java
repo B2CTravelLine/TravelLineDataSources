@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.virtusa.model.BoardingModel;
 import com.virtusa.model.BusModel;
-
+import com.virtusa.model.PassengerDetailsModel;
 import com.virtusa.model.SeatModel;
 import com.virtusa.repository.BusRepository;
 import com.virtusa.utilities.ConnectionManager;
@@ -82,26 +82,54 @@ public class PassengerDAO {
 	{
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
-	
+		int seats=0;
 		PreparedStatement statement=con.prepareStatement("select noofseats from bus  where bus_number=?");
 		statement.setInt(1,busModel.getBusNo());
-		int seats=0;
 		
-		//statement.setInt(2,busModel.getTotalSeats());
+		System.out.println("hellooo ");
+
+		
+		
 		ResultSet rs1=statement.executeQuery();
-		//seats=rs1.getInt('noofseats');
-		while(rs1.next()) {
-			seats=rs1.getInt(1);}
-		if(seats<=busModel.getTotalSeats())
+		
+		
+       while(rs1.next()) {
+          seats=rs1.getInt(1);
+           System.out.println(seats);
+       }
+			
+		if(seats>=busModel.getTotalSeats())
 		{
 			return true;
 		}
 		else
+		{
 			return false;
+		 }
+      
+	
 		/*if((statement.getResultSet()).equals(null)) {
 			
 			return false;
+		}int seats=0;
+		System.out.println("hellooo ");
+
+		
+		//statement.setInt(2,busModel.getTotalSeats());
+		ResultSet rs1=statement.executeQuery();
+		
+         while(rs1.next()) {
+             seats=rs1.getInt(1);
+             System.out.println(seats);
+         }
+		
+			
+		if(seats>=200)
+		{
+			System.out.println(" true");
 		}
+		else
+			System.out.println("false");
 		
 		return true;
 		*/
@@ -115,4 +143,17 @@ public class PassengerDAO {
 		return false;
 		
 	}
+	
+	public boolean addPassengers(PassengerDetailsModel passengerDetailsModel) throws ClassNotFoundException, SQLException {
+		
+		ConnectionManager connectionUtility=new ConnectionManager();
+		Connection con=connectionUtility.openConnection();
+		PreparedStatement statement1=con.prepareStatement("insert into ");
+		
+		return false;
+		
+	}
+
+
+	 
 }

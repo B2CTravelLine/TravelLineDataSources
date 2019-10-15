@@ -20,6 +20,7 @@ public class UI {
 		  
 		int option=in.nextInt();
 		
+		
 		switch(option)
 		{
 			case 1: AdminLoginView adminLoginView=new AdminLoginView(); 

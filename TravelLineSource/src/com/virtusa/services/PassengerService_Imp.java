@@ -31,9 +31,9 @@ public class PassengerService_Imp implements PassengerService{
 
 
 
-	public boolean storePassengerDetails(PassengerDetailsModel passengerDetailsModel) {
+	public boolean storePassengerDetails(PassengerDetailsModel passengerDetailsModel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return false;
+		return passengerDAO.addPassengers(passengerDetailsModel);
 	}
 	
 }
