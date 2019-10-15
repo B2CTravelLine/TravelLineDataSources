@@ -21,13 +21,16 @@ import com.virtusa.controller.AdminController;
 import com.virtusa.validation.AddServicesValidation;
 
 
-public class AddServicesView {
+public class AddServicesView
+{
 	@SuppressWarnings({ "resource", "unused" })
 	public void mainAddServicesView()
 	{
 		
 		Scanner sc = new Scanner(System.in);
 		AddServicesValidation addServicesValidation = new AddServicesValidation();
+		
+		//**************************************//
 		int busNo;
 		boolean validBusNo=false;
 		do {
@@ -41,25 +44,74 @@ public class AddServicesView {
 		}
 		}while(!validBusNo);
 		
-		
-		
-		
+		//************************************//
+		String busName;
+		boolean validBusName = false;
+		do {
 		System.out.println("Enter bus name");
-		String busName = sc.next();
+		busName = sc.next();
+		validBusName = addServicesValidation.validString(busName);
 		
+		if(validBusName==false)
+		{
+			System.out.println("Enter valid name");
+		}
+		}while(!validBusName);
+	
+		//***********************************************//
+		String busType;
+		boolean validBusType = false;
+		do {
 		System.out.println("enter bus type");
-		String busType = sc.next();
+		busType = sc.next();
+		validBusType = addServicesValidation.validString(busName); 
+		if(validBusType==false)
+		{
+			System.out.println("Enter valid BusType");
+		}}while(!validBusType);
 		
-		System.out.println("Enter no of seats");
-		int noOfSeats = sc.nextInt();
+		//***********************************//
+		int noOfSeats;
+		boolean validNoOfSeats = false;
+		do {
+			System.out.println("Enter no of seats");
+			noOfSeats = sc.nextInt();
+			validNoOfSeats = addServicesValidation.validNumber(busNo); 	
 		
-		System.out.println("Enter fare");
-		int fare = sc.nextInt();
+		if(validNoOfSeats==false)	
+		{
+			System.out.println("Enter valid No of Seats");
+		}}while(!validNoOfSeats);
 		
+		//***************************************//
+		int fare;
+		boolean validFare=false;
+		do
+		{
+
+			System.out.println("Enter Fare Amount");
+			fare = sc.nextInt();
+			validFare= addServicesValidation.validNumber(busNo);
 		
+			if(validFare)
+			{
+				System.out.println("Enter valid Fare");
+			}
+		}while(!validFare);
+		
+		//*****************************************//
+		int boardingId;
+		boolean validBoardingId = false;
+		do {
 		System.out.println("enter boarding id ");
-		int boardingId = sc.nextInt();
+		boardingId = sc.nextInt();
+		validBoardingId = addServicesValidation.validNumber(busNo); 	
 		
+		if(validBoardingId)
+		{
+			System.out.println("Enter valid Id");
+		}
+		}while(!validBoardingId);
 		AdminController adminController = new AdminController();
 		adminController.addService(busNo,busName,busType,noOfSeats,fare,boardingId);
 		

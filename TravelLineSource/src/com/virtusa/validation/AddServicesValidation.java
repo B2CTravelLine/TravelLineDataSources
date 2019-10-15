@@ -22,8 +22,15 @@ public class AddServicesValidation
 	            return true;
 	        }
 	        else
-		{
+	        {
 	        	return false;
-		}
+	        }
 	}
+
+		public boolean validString(String busName) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		
 }
