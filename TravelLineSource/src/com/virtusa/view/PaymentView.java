@@ -5,11 +5,14 @@ import java.util.Scanner;
 
 import com.virtusa.controller.PassengerController;
 import com.virtusa.controller.PaymentController;
+import com.virtusa.model.BusModel;
 
 public class PaymentView {
 
 public void mainPaymentView()
 {
+	BusView busView=new BusView();
+	BusModel busModel=new BusModel();
 Scanner sc=new Scanner(System.in);
 System.out.println("=======Payment Form======");
     System.out.println("enter Card Holder Name");
@@ -20,7 +23,7 @@ System.out.println("=======Payment Form======");
     int CVV=sc.nextInt();
     System.out.println("enter Total Fare Amount");
     int totalFareAmount=sc.nextInt();
-    
+    System.out.println(totalFareAmount);
     PaymentController paymentController=new PaymentController();
 	paymentController.payment(cardHolderName,creditCardNumber,CVV,totalFareAmount);
     

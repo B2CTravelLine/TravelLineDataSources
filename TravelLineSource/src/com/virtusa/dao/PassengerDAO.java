@@ -164,6 +164,7 @@ public class PassengerDAO {
 
 		
 		statement1.close();
+		
 		}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -8,13 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.virtusa.model.PaymentModel;
 import com.virtusa.utilities.ConnectionManager;
 
 public class MainClass {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		System.out.println("hai");
-	
+	/*
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
 		 String str="2019-11-10";  
@@ -76,6 +77,25 @@ public class MainClass {
 		else
 			System.out.println("false");
 			*/
+		try {
+		PaymentModel paymentModel=new PaymentModel();
+		ConnectionManager connectionUtility=new ConnectionManager();
+		Connection con=connectionUtility.openConnection();
+		PreparedStatement statement1=con.prepareStatement("INSERT INTO payment VALUES ( ?, ?, ?)");
+		statement1.setString(1,"bindu");
+		statement1.setLong(2,123456789);
+		statement1.setInt(3,234);
+		statement1.executeUpdate();
+
+
+		
+		statement1.close();
+		
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
