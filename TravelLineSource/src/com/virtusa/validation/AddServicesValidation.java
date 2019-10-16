@@ -2,9 +2,6 @@ package com.virtusa.validation;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.virtusa.model.AddServicesModel;
-
 /**
  * 
  * @author nishithreddyy

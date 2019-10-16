@@ -7,8 +7,9 @@ import com.virtusa.controller.PassengerController;
 import com.virtusa.controller.PaymentController;
 import com.virtusa.model.BusModel;
 
+@SuppressWarnings("unused")
 public class PaymentView {
-
+@SuppressWarnings("resource")
 public void mainPaymentView()
 {
 	BusView busView = new BusView();
@@ -26,7 +27,5 @@ public void mainPaymentView()
     System.out.println(totalFareAmount);
     PaymentController paymentController = new PaymentController();
 	paymentController.payment(cardHolderName,creditCardNumber,CVV,totalFareAmount);
-    
-    
 }
 }
