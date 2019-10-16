@@ -14,7 +14,7 @@ import com.virtusa.utilities.ConnectionManager;
 public class NewMain {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
+		/*// TODO Auto-generated method stub
 		BoardingModel boardingModel=new BoardingModel();
 		ConnectionManager connectionUtility=new ConnectionManager();
 		Connection con=connectionUtility.openConnection();
@@ -51,7 +51,7 @@ public class NewMain {
 		}
 		for(BusModel i : list) {
 			System.out.println(i);
-		}
+		}*/
 	}
 
 }

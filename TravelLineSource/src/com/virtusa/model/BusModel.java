@@ -4,7 +4,7 @@ public class BusModel {
 
 	private int busNo;
 	private String busName;
-	private String BusType;
+	private String busType;
 	private int totalSeats;
 	private int fare;
 	public int getBusNo() {
@@ -20,10 +20,10 @@ public class BusModel {
 		this.busName = busName;
 	}
 	public String getBusType() {
-		return BusType;
+		return busType;
 	}
 	public void setBusType(String busType) {
-		BusType = busType;
+		busType = busType;
 	}
 	public int getTotalSeats() {
 		return totalSeats;
@@ -39,7 +39,7 @@ public class BusModel {
 	}
 	@Override
 	public String toString() {
-		return "BusModel [busNo=" + busNo + ", busName=" + busName + ", BusType=" + BusType + ", totalSeats="
+		return "BusModel [busNo=" + busNo + ", busName=" + busName + ", BusType=" + busType + ", totalSeats="
 				+ totalSeats + ", fare=" + fare + "]";
 	}
 	

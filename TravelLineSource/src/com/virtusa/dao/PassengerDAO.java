@@ -38,28 +38,28 @@ public class PassengerDAO {
 		con.close();
 		return true;
 	*/	
-		ConnectionManager connectionUtility=new ConnectionManager();
-		Connection con=connectionUtility.openConnection();
+		ConnectionManager connectionUtility = new ConnectionManager();
+		Connection con = connectionUtility.openConnection();
 		// String str="2019-11-10";  
 		  //  Date date=Date.valueOf(str);
-		PreparedStatement statement1=con.prepareStatement("select b.* from boarding b where b.BROADING_POINT=? and b.DROPPING_POINT=? and b.JOURNEY_DATE=?");
+		PreparedStatement statement1 = con.prepareStatement("select b.* from boarding b where b.BROADING_POINT=? and b.DROPPING_POINT=? and b.JOURNEY_DATE=?");
 		statement1.setString(1,boardingModel.getFrom());
 		statement1.setString(2,boardingModel.getTo());
 		statement1.setDate(3, boardingModel.getJourneyDate());
-		ResultSet rs1=statement1.executeQuery();
-		int bid=0;
-		while(rs1.next()) {
-			bid=rs1.getInt(1);}
+		ResultSet rs1 = statement1.executeQuery();
+		int bid = 0;
+		while (rs1.next()) {
+			bid = rs1.getInt(1);}
 		
-		if(bid==0) {
+		if (bid == 0) {
 			System.out.println("buses not available");
 		}
 		
-		PreparedStatement statement=con.prepareStatement("select b.* from bus b join boarding bo on b. BOARDING_ID=bo.BOARDING_ID where b.BOARDING_ID=?");
+		PreparedStatement statement = con.prepareStatement("select b.* from bus b join boarding bo on b. BOARDING_ID=bo.BOARDING_ID where b.BOARDING_ID=?");
 		statement.setInt(1, bid);
-		ResultSet rs=statement.executeQuery();
-		List<BusModel> list=new ArrayList<BusModel>();
-		BusModel bus=new BusModel();
+		ResultSet rs = statement.executeQuery();
+		List<BusModel> list = new ArrayList<BusModel>();
+		BusModel bus = new BusModel();
 		while(rs.next()) {
 			bus.setBusNo(rs.getInt(1));
 			bus.setBusName(rs.getString(2));
@@ -68,7 +68,7 @@ public class PassengerDAO {
 			bus.setFare(rs.getInt(5));
 			
 			list.add(bus);
-			bus=new BusModel();
+			bus = new BusModel();
 			
 		}
 		for(BusModel i : list) {
@@ -80,25 +80,25 @@ public class PassengerDAO {
 	
 	public boolean selectBus(BusModel busModel) throws ClassNotFoundException, SQLException
 	{
-		ConnectionManager connectionUtility=new ConnectionManager();
-		Connection con=connectionUtility.openConnection();
-		int seats=40;
-		PreparedStatement statement=con.prepareStatement("select noofseats from bus  where bus_number=?");
+		ConnectionManager connectionUtility = new ConnectionManager();
+		Connection con = connectionUtility.openConnection();
+		int seats = 40;
+		PreparedStatement statement = con.prepareStatement("select noofseats from bus  where bus_number=?");
 		statement.setInt(1,busModel.getBusNo());
 		
 		System.out.println("hellooo ");
 
 		
 		
-		ResultSet rs1=statement.executeQuery();
+		ResultSet rs1 = statement.executeQuery();
 		
 		
-       while(rs1.next()) {
-          seats=rs1.getInt(1);
+       while (rs1.next()) {
+          seats = rs1.getInt(1);
            System.out.println(seats);
        }
 			
-		if(seats>=busModel.getTotalSeats())
+		if (seats >= busModel.getTotalSeats())
 		{
 			return true;
 		}
@@ -138,7 +138,7 @@ public class PassengerDAO {
 	}
 	public boolean bookSeat(SeatModel seatModel)
 	{
-		if(seatModel.getSeatNo()==1&&seatModel.getSeatType().equals(""))
+		if (seatModel.getSeatNo() == 1 && seatModel.getSeatType().equals(""))
 			return true;
 		return false;
 		
@@ -146,13 +146,13 @@ public class PassengerDAO {
 	
 	public boolean addPassengers(PassengerDetailsModel passengerDetailsModel) throws ClassNotFoundException, SQLException {
 		
-		BusModel busModel=new BusModel();
+		BusModel busModel = new BusModel();
 		try {
-		ConnectionManager connectionUtility=new ConnectionManager();
-		Connection con=connectionUtility.openConnection();
-		for(int i=0;i<busModel.getBusNo();i++)
+		ConnectionManager connectionUtility = new ConnectionManager();
+		Connection con = connectionUtility.openConnection();
+		for (int i = 0;i < busModel.getBusNo();i++)
 		{
-		PreparedStatement statement1=con.prepareStatement("INSERT INTO passenger VALUES ( ?, ?, ?)");
+		PreparedStatement statement1 = con.prepareStatement("INSERT INTO passenger VALUES ( ?, ?, ?)");
 		statement1.setString(1, passengerDetailsModel.getName());
 		
 		statement1.setInt(2, passengerDetailsModel.getAge());

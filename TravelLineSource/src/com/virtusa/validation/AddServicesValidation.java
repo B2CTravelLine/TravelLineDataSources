@@ -20,9 +20,9 @@ public class AddServicesValidation
 		@SuppressWarnings("unused")
 		public boolean validNumber(int busNo) {
 		// TODO Auto-generated method stub
-			boolean result=false;
-	        String data=String.valueOf(busNo);
-	        if(data.matches(".*[0-9]")) {
+			boolean result = false;
+	        String data = String.valueOf(busNo);
+	        if (data.matches(".*[0-9]")) {
 	            return true;
 	        }
 	        else
@@ -33,19 +33,19 @@ public class AddServicesValidation
 
 		public boolean validString(String busName)
 		{
-			 boolean result=false;
-		        char chars[]=busName.toCharArray();
-		        List<Character> alphabets=new ArrayList<>();
-		        for(int i=97;i<=122;i++)
+			 boolean result = false;
+		        char chars[] = busName.toCharArray();
+		        List<Character> alphabets = new ArrayList<>();
+		        for (int i = 97;i <= 122;i++)
 		        {
 		            alphabets.add((char)i);
 		        }
-		        for(char ch:chars) 
+		        for (char ch:chars) 
 		        {
-		            if(alphabets.contains(ch))
-		            { result=true;}
+		            if (alphabets.contains(ch))
+		            { result = true;}
 		            else if(!(alphabets.contains(ch)))
-		                {result=false;}
+		                {result = false;}
 		         }        
 		       
 		       

@@ -27,7 +27,7 @@ public class ModifyServiceview {
 		int boardingId = sc.nextInt();
 		
 		AdminController adminController = new AdminController();
-		adminController.modifyService(busNo, busName, busType,noOfSeats ,fare,boardingId);
+		adminController.modifyService(busNo,busName,busType,noOfSeats,fare,boardingId);
 	}
 
 }

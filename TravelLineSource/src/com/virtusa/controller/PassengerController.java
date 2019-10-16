@@ -22,18 +22,18 @@ public class PassengerController {
 	 
 	public void showBuses(String boardingPoint,String droppingPoint,Date journeyDate)
 	{
-		BoardingModel boardingModel=new BoardingModel();
+		BoardingModel boardingModel = new BoardingModel();
 		boardingModel.setFrom(boardingPoint);
 		boardingModel.setTo(droppingPoint);
 		boardingModel.setJourneyDate(journeyDate);
-		PassengerService_Imp passengerservice=new PassengerService_Imp();
+		PassengerService_Imp passengerservice = new PassengerService_Imp();
 		try
 		{
-			boolean passengerValue=passengerservice.showAvalBus(boardingModel);
+			boolean passengerValue = passengerservice.showAvalBus(boardingModel);
 			if(passengerValue)
 			{
 				System.out.println("*********");
-				BusView busView=new BusView();
+				BusView busView = new BusView();
 				busView.mainBusView();
 			}
 			else
@@ -48,19 +48,19 @@ public class PassengerController {
 	}
 	public void selectBus(int busNo,int noofseats)
 	{
-		BusModel busModel=new BusModel();
+		BusModel busModel = new BusModel();
 		//busModel.setBusType(busType);
 		//busModel.setDepatureTime(depatureTime);
 		//busModel.setArrivalTime(arrivalTime);
 		busModel.setTotalSeats(noofseats);
-		PassengerService_Imp passengerservice=new PassengerService_Imp();
+		PassengerService_Imp passengerservice = new PassengerService_Imp();
 		try
 		{
-			boolean busValue=passengerservice.selectAvlBus(busModel);
-			if(busValue)
+			boolean busValue = passengerservice.selectAvlBus(busModel);
+			if (busValue)
 			{
 				System.out.println("seats are available");
-				PassengerDetailsView passengerDetailsView=new PassengerDetailsView();
+				PassengerDetailsView passengerDetailsView = new PassengerDetailsView();
 				passengerDetailsView.mainPassengerDetailsView();
 			}
 			else
@@ -68,7 +68,7 @@ public class PassengerController {
 				System.out.println("seats are not available");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			System.out.println("Exception ");
 		}
@@ -101,24 +101,24 @@ public class PassengerController {
 	*/
 	public void storePassengerDetails(String name,int age,String gender)
 	{
-		PassengerDetailsModel passengerDetailsModel=new PassengerDetailsModel();
+		PassengerDetailsModel passengerDetailsModel = new PassengerDetailsModel();
 		passengerDetailsModel.setName(name);
 		passengerDetailsModel.setAge(age);
 		passengerDetailsModel.setGender(gender);
-		PassengerService_Imp passengerService=new PassengerService_Imp();
+		PassengerService_Imp passengerService = new PassengerService_Imp();
 		try {
-			boolean storePsg=passengerService.storePassengerDetails(passengerDetailsModel);
-			if(storePsg)
+			boolean storePsg = passengerService.storePassengerDetails(passengerDetailsModel);
+			if (storePsg)
 			{
-				PaymentView paymentView=new PaymentView();
+				PaymentView paymentView = new PaymentView();
 				paymentView.mainPaymentView();
 			}
 			else
 				System.out.println("Passenger details are not added");
-				PassengerDetailsView passengerDetailsView=new PassengerDetailsView();
+				PassengerDetailsView passengerDetailsView = new PassengerDetailsView();
 				passengerDetailsView.mainPassengerDetailsView();
 				
-		}catch(Exception e)
+		} catch (Exception e)
 		{
 			System.out.println("Exception");
 		}

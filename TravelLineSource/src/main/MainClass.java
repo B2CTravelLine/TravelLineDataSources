@@ -86,8 +86,6 @@ public class MainClass {
 		statement1.setLong(2,123456789);
 		statement1.setInt(3,234);
 		statement1.executeUpdate();
-
-
 		
 		statement1.close();
 		

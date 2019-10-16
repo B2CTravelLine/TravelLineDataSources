@@ -68,13 +68,13 @@ public class BoardingView {
 
 	public void mainBoardingView() throws ParseException
 	{
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 
 		System.out.println("=======Boarding View======");
 		System.out.println("enter BoardingPoint ");
-		String boardingPoint=sc.next();
+		String boardingPoint = sc.next();
 		System.out.println("enter Dropping Point");
-		String droppingPoint=sc.next();
+		String droppingPoint = sc.next();
 		System.out.println("enter Journey date(yyyy-mm--dd)");
 		//Date journeyDate=(Date) new SimpleDateFormat("dd-mm-yyyy").parse(sc.next());
 		//LocalDate journeyDate=new LocalDate("yyyy-mm-dd");
@@ -84,23 +84,23 @@ public class BoardingView {
 	 * 
 	 */
 		 //System.out.print("Hire Date(DD/MM/YYYY):");
-			String journeyDate=sc.next();
+			String journeyDate = sc.next();
 			
-			StringTokenizer tokens=new StringTokenizer(journeyDate,"-");
+			StringTokenizer tokens = new StringTokenizer(journeyDate,"-");
 			
-			List<String> tokensList=new ArrayList<>();
-			while(tokens.hasMoreTokens()) {
+			List<String> tokensList = new ArrayList<>();
+			while (tokens.hasMoreTokens()) {
 				tokensList.add(tokens.nextToken());
 			}
 			
-			int dayOfMonth=Integer.parseInt(tokensList.get(2));
-			int month=Integer.parseInt(tokensList.get(1));
-			int year=Integer.parseInt(tokensList.get(0));
+			int dayOfMonth = Integer.parseInt(tokensList.get(2));
+			int month = Integer.parseInt(tokensList.get(1));
+			int year = Integer.parseInt(tokensList.get(0));
 			
 			Date travelDate=Date.valueOf(LocalDate.of(year, month, dayOfMonth));
 		 
 		//LocalDate travelDate=LocalDate.of(year, month, dayOfMonth);
-		PassengerController passengerController=new PassengerController();
+		PassengerController passengerController = new PassengerController();
 		passengerController.showBuses(boardingPoint,droppingPoint,travelDate);
 	}
 }

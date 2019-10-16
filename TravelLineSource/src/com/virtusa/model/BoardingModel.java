@@ -5,20 +5,20 @@ import java.time.LocalDate;
 
 public class BoardingModel {
 	
-	private String From;
-	private String To;
+	private String from;
+	private String to;
 	private Date journeyDate;
 	public String getFrom() {
-		return From;
+		return from;
 	}
 	public void setFrom(String from) {
-		From = from;
+		from = from;
 	}
 	public String getTo() {
-		return To;
+		return to;
 	}
 	public void setTo(String to) {
-		To = to;
+		to = to;
 	}
 	
 
@@ -33,7 +33,7 @@ public class BoardingModel {
 	}
 	@Override
 	public String toString() {
-		return "BoardingModel [From=" + From + ", To=" + To + ", journeyDate=" + journeyDate + "]";
+		return "BoardingModel [From=" + from + ", To=" + to + ", journeyDate=" + journeyDate + "]";
 	}
 	
 
