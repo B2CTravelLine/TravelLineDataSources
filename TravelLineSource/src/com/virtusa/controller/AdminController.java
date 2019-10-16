@@ -22,12 +22,11 @@ import com.virtusa.view.ModifyServiceview;
 
 public class AdminController
 {
-public void Verification(String userName,String password) {
+public void verification(String userName,String password) {
 		
 		
-		AdminLoginModel adminLoginModel=new AdminLoginModel();
-		adminLoginModel.setUserName(userName);
-		adminLoginModel.setPassword(password);
+		AdminLoginModel adminLoginModel=new AdminLoginModel(userName,password);
+		
 		boolean verf ;
 		AdminService_Imp userService=new AdminService_Imp(); 
 		try {
@@ -47,7 +46,8 @@ public void Verification(String userName,String password) {
 			errorView.authenticationError();
 		}
 		
-		}catch(Exception e) {
+		}
+		catch (Exception e) {
 			System.out.println("User Authentication failed.");
 			AdminLoginView adminLoginView=new AdminLoginView(); 
 			adminLoginView.mainAdminView();

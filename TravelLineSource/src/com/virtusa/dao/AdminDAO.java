@@ -16,7 +16,6 @@ import com.virtusa.model.AddServicesModel;
 import com.virtusa.model.AdminLoginModel;
 import com.virtusa.model.FeedBackModel;
 import com.virtusa.model.ModifyServiceModel;
-import com.virtusa.repository.AdminRepository;
 import com.virtusa.utilities.ConnectionManager;
 
 public class AdminDAO 
@@ -93,8 +92,7 @@ public class AdminDAO
 	try {	
 		ConnectionManager connectionManager= new ConnectionManager();
 		Connection connection = connectionManager.openConnection();
-		String query="insert into buses values(?,?,?,?,?,?)";
-		PreparedStatement statement = connection.prepareStatement(query);
+		PreparedStatement statement = connection.prepareStatement("insert into buses values(?,?,?,?,?,?)");
 		statement.setInt(1, addServicesModel.getBusNo());
 		statement.setString(2,addServicesModel.getBusName());
 		statement.setString(3, addServicesModel.getBusType());
@@ -105,7 +103,7 @@ public class AdminDAO
 		statement.executeUpdate();
 				statement.close();
 				} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 				}
 

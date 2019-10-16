@@ -12,7 +12,6 @@ import com.virtusa.model.BoardingModel;
 import com.virtusa.model.BusModel;
 import com.virtusa.model.PassengerDetailsModel;
 import com.virtusa.model.SeatModel;
-import com.virtusa.repository.BusRepository;
 import com.virtusa.utilities.ConnectionManager;
 
 public class PassengerDAO {

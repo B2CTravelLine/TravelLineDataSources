@@ -24,7 +24,7 @@ public class AdminLoginView {
 		String Password=sc.next();
 		
 		AdminController adminController=new AdminController();
-		adminController.Verification(username,Password);
+		adminController.verification(username,Password);
 		
 	}
 

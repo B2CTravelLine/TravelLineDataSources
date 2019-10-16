@@ -42,7 +42,11 @@ public class AdminLoginModel {
 		return "AdminLoginModel [userName=" + userName + ", Password=" + Password + ", Email=" + Email + ", Age=" + Age
 				+ ", Gender=" + Gender + "]";
 	}
-	
+	public AdminLoginModel(String userName,String Password) {
+		this.userName=userName;
+		this.Password=Password;
+		
+	}
 	
 	
 }
