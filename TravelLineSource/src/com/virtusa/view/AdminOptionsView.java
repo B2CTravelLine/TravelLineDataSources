@@ -1,11 +1,12 @@
 package com.virtusa.view;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Scanner;
 
 public class AdminOptionsView {
 
-	public void mainAdminOptionsView() throws ParseException
+	public void mainAdminOptionsView() throws ParseException, ClassNotFoundException, SQLException
 	{
 		
 		System.out.println("Select the option\n");

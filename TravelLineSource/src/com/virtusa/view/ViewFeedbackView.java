@@ -1,10 +1,12 @@
 package com.virtusa.view;
 
+import java.sql.SQLException;
+
 import com.virtusa.controller.AdminController;
 
 public class ViewFeedbackView {
 	
-		public void mainViewFeedback()
+		public void mainViewFeedback() throws ClassNotFoundException, SQLException
 		{
 			String name=null;
 			 String emailId=null;

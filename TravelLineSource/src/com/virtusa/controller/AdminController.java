@@ -1,5 +1,7 @@
 package com.virtusa.controller;
 
+import java.sql.SQLException;
+
 //import java.sql.Time;
 import com.virtusa.model.AddAdminModel;
 import com.virtusa.model.AddServicesModel;
@@ -120,7 +122,7 @@ public void verification(String userName,String password) {
 			modifyServicesView.mainModifyServiceView();
 		}
 	}
-	public void viewFeedbackService(String name, String emailId, String comments) {
+	public void viewFeedbackService(String name, String emailId, String comments) throws ClassNotFoundException, SQLException {
 		FeedBackModel feedbackModel = new FeedBackModel();
 		feedbackModel.setName(name);
 		feedbackModel.setEmailId(emailId);
