@@ -22,10 +22,10 @@ public void mainPaymentView()
     int creditCardNumber = sc.nextInt();
     System.out.println("enter CVV");
     int CVV = sc.nextInt();
-    System.out.println("enter Total Fare Amount");
-    int totalFareAmount = sc.nextInt();
-    System.out.println(totalFareAmount);
+   // System.out.println("enter Total Fare Amount");
+  //  int totalFareAmount = sc.nextInt();
+   // System.out.println(totalFareAmount);
     PaymentController paymentController = new PaymentController();
-	paymentController.payment(cardHolderName,creditCardNumber,CVV,totalFareAmount);
+	paymentController.payment(cardHolderName,creditCardNumber,CVV);
 }
 }

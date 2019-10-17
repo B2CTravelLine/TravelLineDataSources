@@ -4,6 +4,8 @@ package com.virtusa.ui;
 import java.text.ParseException;
 import java.util.Scanner;
 
+
+import com.virtusa.view.AddAdminView;
 import com.virtusa.view.AdminLoginView;
 import com.virtusa.view.BoardingView;
 
@@ -12,6 +14,10 @@ public class UI {
 
 	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
+		//Logger log;
+	//	log=Logger.getLogger(AddAdminView.class.getName());
+		//log.info("This Is UI");
+
 		System.out.println("Enter 1 if you are an Admin");
 		System.out.println("Enter 2 if you are a Passenger");
 		System.out.println("Enter your option:");
