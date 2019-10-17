@@ -5,21 +5,11 @@ import java.time.LocalDate;
 
 public class BoardingModel {
 	
-	private String from;
-	private String to;
+	private String boardingPoint;
+	private String droppingPoint;
 	private Date journeyDate;
-	public String getFrom() {
-		return from;
-	}
-	public void setFrom(String from) {
-		from = from;
-	}
-	public String getTo() {
-		return to;
-	}
-	public void setTo(String to) {
-		to = to;
-	}
+	
+	
 	
 
 	
@@ -31,10 +21,24 @@ public class BoardingModel {
 	public void setJourneyDate(Date journeyDate) {
 		this.journeyDate = journeyDate;
 	}
+	public String getBoardingPoint() {
+		return boardingPoint;
+	}
+	public void setBoardingPoint(String boardingPoint) {
+		this.boardingPoint = boardingPoint;
+	}
+	public String getDroppingPoint() {
+		return droppingPoint;
+	}
+	public void setDroppingPoint(String droppingPoint) {
+		this.droppingPoint = droppingPoint;
+	}
 	@Override
 	public String toString() {
-		return "BoardingModel [From=" + from + ", To=" + to + ", journeyDate=" + journeyDate + "]";
+		return "BoardingModel [boardingPoint=" + boardingPoint + ", droppingPoint=" + droppingPoint + ", journeyDate="
+				+ journeyDate + "]";
 	}
+	
 	
 
 }

@@ -14,7 +14,12 @@ public class BusView {
 		int busNo = sc.nextInt();
 		System.out.println("enter noof seats to book");
 		int noofseats=sc.nextInt();
-		
+		if(noofseats>2)
+		{
+			System.out.println("you cannot select more than 2 seats");
+			BusView b=new BusView();
+			b.mainBusView();
+		}
 		
 		PassengerController passengerController=new PassengerController();
 		passengerController.selectBus(busNo,noofseats);

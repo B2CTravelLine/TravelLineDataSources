@@ -63,6 +63,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import com.virtusa.controller.PassengerController;
+import com.virtusa.validation.AddServicesValidation;
 
 public class BoardingView {
 
@@ -71,8 +72,33 @@ public class BoardingView {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("=======Boarding View======");
-		System.out.println("enter BoardingPoint ");
-		String boardingPoint = sc.next();
+		
+		String boardingPoint;
+		/*String busName;
+		boolean validBusName = false;
+		do {
+		System.out.println("Enter bus name");
+		busName = sc.next();
+		validBusName = addServicesValidation.validString(busName);
+		if(validBusName==false){
+		System.out.println("Enter valid Name or Type");
+		}}while(!validBusName);
+		
+		*/
+		AddServicesValidation addServicesValidation=new AddServicesValidation();
+		boolean validboardingPoint = false;
+		do {
+			System.out.println("enter BoardingPoint ");
+			boardingPoint = sc.next();
+			validboardingPoint = addServicesValidation.validString(boardingPoint);
+			if(validboardingPoint==false){
+			System.out.println("Enter valid BoardingPoint or Type");
+			}
+			}while(!validboardingPoint);
+			
+			
+			
+		
 		System.out.println("enter Dropping Point");
 		String droppingPoint = sc.next();
 		System.out.println("enter Journey date(yyyy-mm--dd)");

@@ -23,8 +23,8 @@ public class PassengerController {
 	public void showBuses(String boardingPoint,String droppingPoint,Date journeyDate)
 	{
 		BoardingModel boardingModel = new BoardingModel();
-		boardingModel.setFrom(boardingPoint);
-		boardingModel.setTo(droppingPoint);
+		boardingModel.setBoardingPoint(boardingPoint);
+		boardingModel.setDroppingPoint(droppingPoint);
 		boardingModel.setJourneyDate(journeyDate);
 		PassengerService_Imp passengerservice = new PassengerService_Imp();
 		try
@@ -38,7 +38,7 @@ public class PassengerController {
 			}
 			else
 			{
-				System.out.println("Buses not availables");
+				System.out.println("Buses not available");
 			}
 		}
 		catch(Exception e)

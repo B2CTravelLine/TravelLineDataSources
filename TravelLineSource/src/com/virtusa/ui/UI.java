@@ -30,8 +30,9 @@ public class UI {
 					boardingView.mainBoardingView();
 					break;
 			default:System.out.println(" please Enter valid number");
-		}
+					UI ui=new UI();
+					ui.main(args);
 
-	}
+	}}
 
 }

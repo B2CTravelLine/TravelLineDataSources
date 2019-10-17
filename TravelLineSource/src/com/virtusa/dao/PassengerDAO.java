@@ -41,18 +41,19 @@ public class PassengerDAO {
 		Connection con = connectionUtility.openConnection();
 		// String str="2019-11-10";  
 		  //  Date date=Date.valueOf(str);
+		//System.out.println(boardingModel.getBoardingPoint());
+		//System.out.println(boardingModel.getDroppingPoint());
+		//System.out.println( boardingModel.getJourneyDate());
 		PreparedStatement statement1 = con.prepareStatement("select b.* from boarding b where b.BROADING_POINT=? and b.DROPPING_POINT=? and b.JOURNEY_DATE=?");
-		statement1.setString(1,boardingModel.getFrom());
-		statement1.setString(2,boardingModel.getTo());
+		statement1.setString(1,boardingModel.getBoardingPoint());
+		statement1.setString(2,boardingModel.getDroppingPoint());
 		statement1.setDate(3, boardingModel.getJourneyDate());
 		ResultSet rs1 = statement1.executeQuery();
 		int bid = 0;
 		while (rs1.next()) {
 			bid = rs1.getInt(1);}
 		
-		if (bid == 0) {
-			System.out.println("buses not available");
-		}
+		
 		
 		PreparedStatement statement = con.prepareStatement("select b.* from bus b join boarding bo on b. BOARDING_ID=bo.BOARDING_ID where b.BOARDING_ID=?");
 		statement.setInt(1, bid);
@@ -85,7 +86,7 @@ public class PassengerDAO {
 		PreparedStatement statement = con.prepareStatement("select noofseats from bus  where bus_number=?");
 		statement.setInt(1,busModel.getBusNo());
 		
-		System.out.println("hellooo ");
+		
 
 		
 		
@@ -149,8 +150,7 @@ public class PassengerDAO {
 		try {
 		ConnectionManager connectionUtility = new ConnectionManager();
 		Connection con = connectionUtility.openConnection();
-		for (int i = 0;i < busModel.getBusNo();i++)
-		{
+		
 		PreparedStatement statement1 = con.prepareStatement("INSERT INTO passenger VALUES ( ?, ?, ?)");
 		statement1.setString(1, passengerDetailsModel.getName());
 		
@@ -164,7 +164,7 @@ public class PassengerDAO {
 		
 		statement1.close();
 		
-		}
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
