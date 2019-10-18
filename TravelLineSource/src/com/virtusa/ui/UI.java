@@ -23,8 +23,16 @@ public class UI {
 		System.out.println("Enter your option:");
 		
 		Scanner in = new Scanner(System.in); 
-		  
-		int option=in.nextInt();
+		int option=0;
+		try {
+			option=in.nextInt();
+		}
+		catch(Exception e)
+		{
+			System.out.println(" plz enter  numbers ");
+			UI ui=new UI();
+			ui.main(args);
+		}
 		
 		switch(option)
 		{

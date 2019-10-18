@@ -60,15 +60,18 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import com.virtusa.controller.PassengerController;
+import com.virtusa.validation.AddServicesValidation;
 import com.virtusa.validation.BoardingValidation;
 
 public class BoardingView {
 
 	@SuppressWarnings("resource")
 	public void mainBoardingView() throws ParseException
-	{
+	{		
+		AddServicesValidation addServicesValidation = new AddServicesValidation();
+		
 	        BoardingValidation boardingValidation = new BoardingValidation();
-	        Scanner sc = new Scanner(System.in);
+	      /*  Scanner sc = new Scanner(System.in);
 	        System.out.println("=======Boarding View======");
 	        String boardingPoint;
 	        boolean validBoardingPoint=false;
@@ -79,7 +82,6 @@ public class BoardingView {
 	        if(validBoardingPoint==false)
 	            System.out.println("Enter Valid Boarding or Destination Name");
 	        }while(validBoardingPoint);
-	        //***********************************************//
 	        String droppingPoint;
 	        boolean validDroppingPoint=false;
 	        do {
@@ -89,15 +91,41 @@ public class BoardingView {
 	        if(validDroppingPoint==false) {
 	            System.out.println("Enter Valid Boarding or Destination Name");
 	        }}while(validDroppingPoint);
+	        
+	       
 	        System.out.println("enter Journey date(yyyy-mm--dd)");
 	        //Date journeyDate=(Date) new SimpleDateFormat("dd-mm-yyyy").parse(sc.next());
 	        //LocalDate journeyDate=new LocalDate("yyyy-mm-dd");
 	        //DateTimeFormatter dateTimeFormatter=new DateTimeFormatter.ofPattern("dd-mm-yyyy");
 	        //String journeyDate=sc.next();
 	    /*
-	     *
+	     *String busName;
+		boolean validBusName = false;
+		do {
+		System.out.println("Enter bus name");
+		busName = sc.next();
+		validBusName = addServicesValidation.validString(busName);
+		if(validBusName==false){
+		System.out.println("Enter valid Name or Type");
+		}}while(!validBusName);
 	     */
-	         //System.out.print("Hire Date(DD/MM/YYYY):");
+	         
+	        Scanner sc = new Scanner(System.in);
+	       
+	        String  boardingPoint ;
+	        boolean validboardingPoint = false;
+			do {
+				 System.out.println("enter BoardingPoint ");
+			boardingPoint = sc.next();
+			validboardingPoint= addServicesValidation.validString(boardingPoint);
+			if(validboardingPoint==false){
+			System.out.println("Enter valid Name or Type");
+			}}while(!validboardingPoint);
+	      
+	    
+	        System.out.println("enter Dropping Point");
+	      String   droppingPoint = sc.next();
+	      System.out.println("enter Journey date(yyyy-mm--dd)");
 	            String journeyDate = sc.next();
 	            StringTokenizer tokens = new StringTokenizer(journeyDate,"-");
 	           
